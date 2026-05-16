@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
@@ -8,6 +9,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,15 +47,22 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-12 items-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-gray-700 font-medium hover:text-primary-700 transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-medium transition-colors duration-200 ${
+                    isActive
+                      ? 'text-primary-700 border-b-2 border-primary-700 pb-1'
+                      : 'text-gray-700 hover:text-primary-700'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
@@ -82,16 +91,23 @@ export default function Navbar() {
             className="md:hidden pb-6 border-t border-gray-100"
           >
             <div className="flex flex-col gap-4 pt-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-gray-700 font-medium hover:text-primary-700 transition-colors py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`font-medium transition-colors py-2 ${
+                      isActive
+                        ? 'text-primary-700 border-l-4 border-primary-700 pl-3'
+                        : 'text-gray-700 hover:text-primary-700'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Link href="/contact" className="btn-primary mt-2">
                 Get In Touch
               </Link>

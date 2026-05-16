@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { HiMail, HiPhone } from 'react-icons/hi';
-import { FaMapMarker } from 'react-icons/fa';
-import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaMapMarker, FaWhatsapp } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,9 +16,8 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: FaLinkedin, href: 'https://www.linkedin.com/company/mydesigner-ai/', label: 'LinkedIn' },
+    { icon: FaInstagram, href: 'https://www.instagram.com/mydesigner.ai/', label: 'Instagram' },
   ];
 
   return (
@@ -91,6 +90,12 @@ export default function Footer() {
                 <HiPhone size={20} className="mt-1 flex-shrink-0 text-accent" />
                 <a href="tel:+918252348421" className="hover:text-accent transition-colors">
                   +91 82523 48421
+                </a>
+              </li>
+              <li className="flex gap-3 items-start">
+                <FaWhatsapp size={20} className="mt-1 flex-shrink-0 text-green-400" />
+                <a href="https://wa.me/918252348421" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
+                  WhatsApp
                 </a>
               </li>
               <li className="flex gap-3 items-start">

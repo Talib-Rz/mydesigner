@@ -4,7 +4,7 @@ import { useState } from 'react';
 import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import { HiMail, HiPhone } from 'react-icons/hi';
-import { FaMapMarker } from 'react-icons/fa';
+import { FaMapMarker, FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,6 +17,7 @@ export default function ContactPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
@@ -63,24 +64,44 @@ export default function ContactPage() {
       return;
     }
 
-    // Simulate form submission
-    // In production, you would send this to your backend or Formspree
-    console.log('Form submitted:', formData);
+    setLoading(true);
 
-    setSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      projectType: '',
-      message: '',
-    });
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send email');
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        projectType: '',
+        message: '',
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      setErrors({
+        submit: error instanceof Error ? error.message : 'Failed to send message. Please try again.',
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -126,6 +147,24 @@ export default function ContactPage() {
                   <a
                     href="tel:+918252348421"
                     className="text-gray-600 hover:text-primary-700 transition-colors"
+                  >
+                    +91 82523 48421
+                  </a>
+                </div>
+
+                {/* WhatsApp */}
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-700">
+                      <FaWhatsapp size={24} />
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900">WhatsApp</h3>
+                  </div>
+                  <a
+                    href="https://wa.me/918252348421"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-green-700 transition-colors"
                   >
                     +91 82523 48421
                   </a>
@@ -312,10 +351,17 @@ export default function ContactPage() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full btn-primary py-4 text-lg font-semibold"
+                  disabled={loading}
+                  className="w-full btn-primary py-4 text-lg font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {errors.submit && (
+                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
+                    <p className="text-red-600 text-sm">{errors.submit}</p>
+                  </div>
+                )}
 
                 <p className="text-sm text-gray-500 text-center">
                   We'll typically respond within 24 hours.

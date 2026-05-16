@@ -1,13 +1,18 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'myDesigner - Visual Campaign & Branding Studio',
   description: 'Premium visual branding and campaign studio serving businesses, events, and startups. Brand identity, campaign design, and creative services.',
   keywords: 'branding, design, campaign, visual identity, agency, studio',
-  viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: '/favicon.png', // Change to favicon.ico if you convert your PNG to ICO format
   },
@@ -42,6 +47,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
