@@ -198,7 +198,7 @@ All components are fully typed with TypeScript for better developer experience a
 ## Support
 
 For questions or issues:
-- Email: hello@mydesigner.in
+- Email: mydesigner2024@gmail.com
 - Phone: +91 98765 43210
 - Website: [mydesigner.in](/)
 

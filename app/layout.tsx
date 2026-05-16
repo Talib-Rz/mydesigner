@@ -4,12 +4,12 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'myDesigner - Visual Campaign & Branding Studio',
+  title: '💙 myDesigner - Visual Campaign & Branding Studio',
   description: 'Premium visual branding and campaign studio serving businesses, events, and startups. Brand identity, campaign design, and creative services.',
   keywords: 'branding, design, campaign, visual identity, agency, studio',
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
-    title: 'myDesigner - Visual Campaign & Branding Studio',
+    title: '💙 myDesigner - Visual Campaign & Branding Studio',
     description: 'Premium visual branding and campaign studio',
     type: 'website',
   },
