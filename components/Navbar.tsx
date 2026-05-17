@@ -26,6 +26,7 @@ export default function Navbar() {
     { href: '/segments', label: 'Segments' },
     { href: '/case-studies', label: 'Case Studies' },
     { href: '/about', label: 'About' },
+    { href: '/feedback', label: 'Feedback' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -84,35 +85,48 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden pb-6 border-t border-gray-100"
-          >
-            <div className="flex flex-col gap-4 pt-4">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`font-medium transition-colors py-2 ${
-                      isActive
-                        ? 'text-primary-700 border-l-4 border-primary-700 pl-3'
-                        : 'text-gray-700 hover:text-primary-700'
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <Link href="/contact" className="btn-primary mt-2">
-                Get In Touch
-              </Link>
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+              style={{ top: '80px' }}
+            />
+
+            {/* Mobile Menu Dropdown */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 right-0 w-full bg-white border-t border-gray-100 shadow-lg z-50 md:hidden"
+            >
+              <div className="flex flex-col gap-4 pt-4 pb-6 px-6 md:px-8 lg:px-12">
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`font-medium transition-colors py-2 ${
+                        isActive
+                          ? 'text-primary-700 border-l-4 border-primary-700 pl-3'
+                          : 'text-gray-700 hover:text-primary-700'
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+                <Link href="/contact" className="btn-primary mt-2">
+                  Get In Touch
+                </Link>
+              </div>
+            </motion.div>
+          </>
         )}
       </div>
     </motion.nav>

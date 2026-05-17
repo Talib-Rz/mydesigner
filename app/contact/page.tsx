@@ -196,17 +196,6 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              {submitted && (
-                <div className="mb-8 bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                  <h3 className="text-lg font-bold text-green-900 mb-2">
-                    ✓ Thank You!
-                  </h3>
-                  <p className="text-green-800">
-                    We've received your message and will get back to you shortly.
-                  </p>
-                </div>
-              )}
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
@@ -356,6 +345,15 @@ export default function ContactPage() {
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {/* Success Message */}
+                {submitted && (
+                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                    <p className="text-green-800 font-semibold">
+                      ✓ Thank you! Your message has been sent successfully.
+                    </p>
+                  </div>
+                )}
 
                 {errors.submit && (
                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
