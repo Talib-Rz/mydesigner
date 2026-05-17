@@ -121,7 +121,11 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
-                <Link href="/contact" className="btn-primary mt-2">
+                <Link
+                  href="/contact"
+                  className="btn-primary mt-2"
+                  onClick={() => setIsOpen(false)}
+                >
                   Get In Touch
                 </Link>
               </div>
