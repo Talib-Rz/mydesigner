@@ -13,11 +13,11 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-block px-6 py-3 bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 hover:bg-primary-800 hover:shadow-lg;
+    @apply inline-block px-6 py-3 bg-primary-700 text-white rounded-lg font-medium transition-all duration-300 hover:bg-primary-800 hover:shadow-lg relative z-10;
   }
 
   .btn-secondary {
-    @apply inline-block px-6 py-3 bg-white text-primary-700 border-2 border-primary-700 rounded-lg font-medium transition-all duration-300 hover:bg-primary-50;
+    @apply inline-block px-6 py-3 bg-white text-primary-700 border-2 border-primary-700 rounded-lg font-medium transition-all duration-300 hover:bg-primary-50 relative z-10;
   }
 
   .section-padding {
