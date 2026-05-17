@@ -11,6 +11,7 @@ interface CaseStudyCardProps {
   results: string[];
   index: number;
   id: number;
+  image?: string;
 }
 
 export default function CaseStudyCard({
@@ -20,6 +21,7 @@ export default function CaseStudyCard({
   results,
   index,
   id,
+  image,
 }: CaseStudyCardProps) {
   return (
     <motion.div
@@ -30,25 +32,33 @@ export default function CaseStudyCard({
       whileHover={{ y: -15, shadow: 'xl' }}
       className="bg-white rounded-2xl overflow-hidden card-shadow h-full flex flex-col"
     >
-      {/* Placeholder for image */}
-      <div className="w-full h-48 bg-gradient-to-br from-primary-100 via-accent/20 to-primary-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-6xl opacity-50">📸</div>
-          <p className="text-sm text-gray-500 mt-2">Project imagery</p>
-        </div>
+      {/* Image Section */}
+      <div className="w-full aspect-square bg-gradient-to-br from-primary-100 via-accent/20 to-primary-50 flex items-center justify-center overflow-hidden relative">
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="text-center">
+            <div className="text-7xl opacity-50">📸</div>
+            <p className="text-sm text-gray-500 mt-3">Add image in /public/images/case-studies/</p>
+          </div>
+        )}
       </div>
 
       {/* Content */}
-      <div className="p-8 flex flex-col flex-1">
-        <div className="flex items-center gap-3 mb-3">
-          <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold">
+      <div className="p-10 flex flex-col flex-1">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="px-4 py-1.5 bg-primary-100 text-primary-700 rounded-full text-sm font-bold">
             {category}
           </span>
         </div>
 
-        <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
+        <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">{title}</h3>
 
-        <p className="text-gray-600 mb-6 flex-1">{description}</p>
+        <p className="text-gray-600 mb-8 flex-1 leading-relaxed">{description}</p>
 
         {/* Results */}
         <div className="mb-6">

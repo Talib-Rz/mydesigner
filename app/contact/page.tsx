@@ -196,12 +196,12 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name */}
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-gray-900 mb-2"
+                    className="block text-base font-bold text-gray-900 mb-3"
                   >
                     Your Name *
                   </label>
@@ -211,15 +211,15 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors ${
+                    className={`w-full px-5 py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base ${
                       errors.name
                         ? 'border-red-500'
-                        : 'border-gray-200 focus:border-primary-600'
+                        : 'border-gray-200 hover:border-gray-300 focus:border-primary-600'
                     }`}
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+                    <p className="text-red-600 text-sm mt-2 font-medium">{errors.name}</p>
                   )}
                 </div>
 
@@ -227,7 +227,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-gray-900 mb-2"
+                    className="block text-base font-bold text-gray-900 mb-3"
                   >
                     Email Address *
                   </label>
@@ -237,15 +237,15 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors ${
+                    className={`w-full px-5 py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base ${
                       errors.email
                         ? 'border-red-500'
-                        : 'border-gray-200 focus:border-primary-600'
+                        : 'border-gray-200 hover:border-gray-300 focus:border-primary-600'
                     }`}
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+                    <p className="text-red-600 text-sm mt-2 font-medium">{errors.email}</p>
                   )}
                 </div>
 
@@ -253,7 +253,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-semibold text-gray-900 mb-2"
+                    className="block text-base font-bold text-gray-900 mb-3"
                   >
                     Phone Number
                   </label>
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary-600 transition-colors"
+                    className="w-full px-5 py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -272,7 +272,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="company"
-                    className="block text-sm font-semibold text-gray-900 mb-2"
+                    className="block text-base font-bold text-gray-900 mb-3"
                   >
                     Company / Organization
                   </label>
@@ -282,7 +282,7 @@ export default function ContactPage() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary-600 transition-colors"
+                    className="w-full px-5 py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base"
                     placeholder="Your Company"
                   />
                 </div>
@@ -291,7 +291,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="projectType"
-                    className="block text-sm font-semibold text-gray-900 mb-2"
+                    className="block text-base font-bold text-gray-900 mb-3"
                   >
                     Project Type
                   </label>
@@ -300,7 +300,7 @@ export default function ContactPage() {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary-600 transition-colors"
+                    className="w-full px-5 py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base"
                   >
                     <option value="">Select a project type</option>
                     <option value="brand-identity">Brand Identity System</option>
@@ -315,7 +315,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-semibold text-gray-900 mb-2"
+                    className="block text-base font-bold text-gray-900 mb-3"
                   >
                     Tell us about your project *
                   </label>
@@ -324,16 +324,16 @@ export default function ContactPage() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={6}
-                    className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors resize-none ${
+                    rows={7}
+                    className={`w-full px-5 py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors resize-none text-base ${
                       errors.message
                         ? 'border-red-500'
-                        : 'border-gray-200 focus:border-primary-600'
+                        : 'border-gray-200 hover:border-gray-300 focus:border-primary-600'
                     }`}
                     placeholder="What's your vision? What are you trying to achieve?"
                   />
                   {errors.message && (
-                    <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+                    <p className="text-red-600 text-sm mt-2 font-medium">{errors.message}</p>
                   )}
                 </div>
 
@@ -341,27 +341,27 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full btn-primary py-4 text-lg font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full btn-primary py-4 text-lg font-bold disabled:opacity-70 disabled:cursor-not-allowed mt-10"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>
 
                 {/* Success Message */}
                 {submitted && (
-                  <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                    <p className="text-green-800 font-semibold">
+                  <div className="bg-green-50 border-2 border-green-300 rounded-lg p-8 mt-10">
+                    <p className="text-green-800 font-bold text-lg">
                       ✓ Thank you! Your message has been sent successfully.
                     </p>
                   </div>
                 )}
 
                 {errors.submit && (
-                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
-                    <p className="text-red-600 text-sm">{errors.submit}</p>
+                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                    <p className="text-red-700 font-semibold">{errors.submit}</p>
                   </div>
                 )}
 
-                <p className="text-sm text-gray-500 text-center">
+                <p className="text-base text-gray-600 text-center mt-8">
                   We'll typically respond within 24 hours.
                 </p>
               </form>

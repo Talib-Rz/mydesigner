@@ -32,15 +32,15 @@ export default function CTASection({
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
             {heading}
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-100 mb-4">
+          <p className="text-2xl md:text-3xl text-gray-100 mb-6 font-semibold">
             {subheading}
           </p>
 
-          <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 mb-14 max-w-2xl mx-auto leading-relaxed">
             {description}
           </p>
 
@@ -50,7 +50,7 @@ export default function CTASection({
           >
             <Link
               href={buttonHref}
-              className="inline-block px-8 py-4 bg-white text-primary-700 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-2xl"
+              className="inline-block px-10 py-4 bg-white text-primary-700 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-2xl"
             >
               {buttonText}
             </Link>

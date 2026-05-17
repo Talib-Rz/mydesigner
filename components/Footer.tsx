@@ -23,17 +23,17 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent mb-6">
               myDesigner
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-8 leading-relaxed">
               Premium visual branding and campaign studio for brands and events that demand excellence.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-5">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}

@@ -7,7 +7,8 @@ import SegmentCard from '@/components/SegmentCard';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import ProcessSection from '@/components/ProcessSection';
 import CTASection from '@/components/CTASection';
-import { servicePillars, caseStudies, processSteps, segments } from '@/lib/data';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import { servicePillars, caseStudies, processSteps, segments, testimonials } from '@/lib/data';
 
 // Section Component
 function Section({
@@ -155,6 +156,9 @@ export default function Home() {
 
       {/* Process Section */}
       <ProcessSection steps={processSteps} />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection testimonials={testimonials} />
 
       {/* Final CTA Section */}
       <CTASection

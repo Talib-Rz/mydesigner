@@ -21,12 +21,12 @@ export default function ServiceCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -10, shadow: 'lg' }}
-      className="p-8 bg-white rounded-2xl border border-gray-100 card-shadow h-full"
+      whileHover={{ y: -12 }}
+      className="p-10 bg-white rounded-2xl border border-gray-100 card-shadow h-full flex flex-col"
     >
-      <div className="text-5xl mb-6">{icon}</div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-      <p className="text-gray-600 leading-relaxed">{description}</p>
+      <div className="text-6xl mb-8">{icon}</div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-5 leading-tight">{title}</h3>
+      <p className="text-gray-600 leading-relaxed flex-1">{description}</p>
     </motion.div>
   );
 }

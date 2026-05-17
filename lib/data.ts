@@ -22,6 +22,16 @@ export interface Segment {
   examples: string[];
 }
 
+export interface Testimonial {
+  id: number;
+  name: string;
+  title: string;
+  company: string;
+  testimonial: string;
+  image: string;
+  rating: number;
+}
+
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
@@ -173,5 +183,53 @@ export const processSteps = [
     number: '06',
     title: 'Launch & Support',
     description: 'Delivering complete packages with documentation and ongoing support.',
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: 'Priya Sharma',
+    title: 'Event Director',
+    company: 'TechCon India',
+    testimonial: 'myDesigner transformed our event vision into reality. The visual campaign was professional, modern, and perfectly executed. Their team understood our brand in just a few meetings.',
+    image: '/images/testimonials/testimonial-1.webp',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Arjun Patel',
+    title: 'Founder & CEO',
+    company: 'EduLearn Startup',
+    testimonial: 'The rebranding process was seamless. myDesigner listened carefully to our vision and delivered a fresh, modern identity that resonates with our target audience. Highly recommended!',
+    image: '/images/testimonials/testimonial-2.webp',
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Neha Gupta',
+    title: 'Marketing Manager',
+    company: 'Fest Collective',
+    testimonial: 'Their creative content suite for our festival was outstanding. The designs went viral on social media and we achieved record ticket sales. Best investment in our campaign!',
+    image: '/images/testimonials/testimonial-3.webp',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Rahul Singh',
+    title: 'Business Development Lead',
+    company: 'Luxury Realty Co.',
+    testimonial: 'Professional, timely, and results-driven. myDesigner delivered premium campaign assets that helped us position our project as luxury. The quality exceeded our expectations.',
+    image: '/images/testimonials/testimonial-4.webp',
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: 'Anjali Desai',
+    title: 'Creative Director',
+    company: 'Digital Marketing Agency',
+    testimonial: 'Working with myDesigner has been a game-changer for our agency. They deliver consistent, high-quality work and are easy to collaborate with. Our clients love the results.',
+    image: '/images/testimonials/testimonial-5.webp',
+    rating: 5,
   },
 ];

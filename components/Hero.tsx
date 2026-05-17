@@ -73,7 +73,7 @@ export default function Hero({
           {/* CTA Buttons */}
           <motion.div
             variants={showAnimation ? itemVariants : {}}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10"
           >
             {primaryCta && (
               <Link href={primaryCta.href} className="btn-primary">

@@ -42,19 +42,23 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary-700 to-accent bg-clip-text text-transparent">
-            myDesigner
+          <Link href="/" className="flex items-center">
+            <img
+              src="/logo/logo.png"
+              alt="myDesigner Logo"
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-12 items-center">
+          <div className="hidden md:flex gap-14 items-center">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-medium transition-colors duration-200 ${
+                  className={`font-semibold transition-colors duration-200 text-base ${
                     isActive
                       ? 'text-primary-700 border-b-2 border-primary-700 pb-1'
                       : 'text-gray-700 hover:text-primary-700'

@@ -27,16 +27,16 @@ export default function SegmentCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ y: -8 }}
-      className={`p-8 rounded-2xl border-2 ${bgColor} ${borderColor} card-shadow`}
+      whileHover={{ y: -10 }}
+      className={`p-10 rounded-2xl border-2 ${bgColor} ${borderColor} card-shadow flex flex-col h-full`}
     >
-      <div className="flex items-start justify-between mb-4">
-        <h3 className="text-xl font-bold text-gray-900 flex-1">{title}</h3>
-        <span className={`px-3 py-1 rounded-full text-sm font-bold ${badgeBg}`}>
+      <div className="flex items-start justify-between mb-6 gap-4">
+        <h3 className="text-xl font-bold text-gray-900 flex-1 leading-tight">{title}</h3>
+        <span className={`px-4 py-1.5 rounded-full text-sm font-bold whitespace-nowrap ${badgeBg}`}>
           {type}
         </span>
       </div>
-      <p className="text-gray-700 mb-6 leading-relaxed">{description}</p>
+      <p className="text-gray-700 mb-8 leading-relaxed flex-1">{description}</p>
       <div className="flex flex-wrap gap-2">
         {examples.map((example) => (
           <span
