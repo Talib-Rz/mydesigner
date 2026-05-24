@@ -15,6 +15,7 @@ interface ServiceDetailProps {
   description: string;
   features: string[];
   deliverables: string[];
+  image: string;
   index: number;
 }
 
@@ -24,6 +25,7 @@ function ServiceDetail({
   description,
   features,
   deliverables,
+  image,
   index,
 }: ServiceDetailProps) {
   return (
@@ -73,9 +75,11 @@ function ServiceDetail({
               index % 2 === 0 ? 'md:order-2' : 'md:order-1'
             }`}
           >
-            <div className="text-center">
-              <div className="text-8xl opacity-20">{icon}</div>
-            </div>
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -105,6 +109,7 @@ const services: ServiceDetailProps[] = [
       'Business collateral templates',
       'Digital and print specifications',
     ],
+    image: '/images/services/service-brand-identity.svg',
     index: 0,
   },
   {
@@ -128,6 +133,7 @@ const services: ServiceDetailProps[] = [
       'Video storyboards and concepts',
       'Content calendar and guidelines',
     ],
+    image: '/images/services/service-campaign.svg',
     index: 1,
   },
   {
@@ -151,6 +157,7 @@ const services: ServiceDetailProps[] = [
       'Web-optimized assets',
       'Print-ready files',
     ],
+    image: '/images/services/service-content.svg',
     index: 2,
   },
   {
@@ -174,6 +181,7 @@ const services: ServiceDetailProps[] = [
       'Brand consistency guidelines updates',
       'Scalable asset libraries',
     ],
+    image: '/images/services/service-marketing.svg',
     index: 3,
   },
 ];

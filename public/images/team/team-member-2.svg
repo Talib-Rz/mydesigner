@@ -1,0 +1,14 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad15" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="100" fill="url(#grad15)"/>
+  <circle cx="100" cy="70" r="25" fill="rgba(255,255,255,0.3)"/>
+  <path d="M 60 120 Q 60 105 75 105 L 125 105 Q 140 105 140 120 L 140 160 Q 140 175 125 175 L 75 175 Q 60 175 60 160 Z" fill="rgba(255,255,255,0.3)"/>
+  <text x="100" y="190" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial">
+    Arjun Patel
+  </text>
+</svg>

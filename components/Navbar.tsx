@@ -23,6 +23,7 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
+    { href: '/gallery', label: 'Gallery' },
     { href: '/segments', label: 'Segments' },
     { href: '/case-studies', label: 'Case Studies' },
     { href: '/about', label: 'About' },
@@ -39,10 +40,10 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <div className="w-full px-6 md:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <img
               src="/logo/logo.png"
               alt="myDesigner Logo"
@@ -51,14 +52,15 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-14 items-center">
+          {/* <div className="hidden md:flex gap-6 items-center justify-center flex-1 px-8"> */}
+          <div className="hidden md:flex gap-10 items-center justify-center flex-[1.4] px-12">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-semibold transition-colors duration-200 text-base ${
+                  className={`font-semibold transition-colors duration-200 text-sm whitespace-nowrap ${
                     isActive
                       ? 'text-primary-700 border-b-2 border-primary-700 pb-1'
                       : 'text-gray-700 hover:text-primary-700'
@@ -71,8 +73,8 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link href="/contact" className="btn-primary">
+          <div className="hidden md:block flex-shrink-0">
+            <Link href="/contact" className="btn-primary whitespace-nowrap">
               Get In Touch
             </Link>
           </div>

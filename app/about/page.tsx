@@ -162,24 +162,31 @@ export default function AboutPage() {
                 name: 'Priya Sharma',
                 role: 'Creative Director & Founder',
                 bio: 'Visual strategist with 8+ years of experience in brand design and creative direction. Passionate about building premium design systems.',
+                image: '/images/team/team-member-priya.svg',
               },
               {
                 name: 'Arjun Patel',
                 role: 'Design Lead',
                 bio: 'Specializes in UI/UX and brand identity systems. Known for meticulous attention to detail and innovative design thinking.',
+                image: '/images/team/team-member-2.svg',
               },
               {
                 name: 'Maya Desai',
                 role: 'Campaign Designer',
                 bio: 'Expert in social media design and campaign conceptualization. Brings creativity and strategy to every project.',
+                image: '/images/team/team-member-3.svg',
               },
             ].map((member) => (
               <div
                 key={member.name}
                 className="bg-gradient-to-br from-primary-50 to-accent/10 rounded-xl p-8 border border-primary-100 text-center"
               >
-                <div className="w-24 h-24 bg-gradient-to-br from-primary-700 to-accent rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl">
-                  👤
+                <div className="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
                 <p className="text-primary-700 font-semibold mb-4">{member.role}</p>
