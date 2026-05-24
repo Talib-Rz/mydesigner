@@ -1,4 +1,4 @@
-import { readdirSync, statSync } from 'fs';
+import { readdirSync } from 'fs';
 import { join } from 'path';
 import { NextResponse } from 'next/server';
 
@@ -13,41 +13,45 @@ interface GalleryItem {
 export async function GET() {
   try {
     const galleryDir = join(process.cwd(), 'public/gallery-items');
-    
+
     // Read files from gallery-items folder
     const files = readdirSync(galleryDir);
-    
-    // Filter valid image and video files
+
+    // Valid extensions
     const validExtensions = {
       image: ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'],
       video: ['.mp4', '.webm', '.mov', '.avi'],
     };
-    
+
+    // Create gallery items
     const galleryItems: GalleryItem[] = files
       .filter((file) => {
         const ext = file.substring(file.lastIndexOf('.')).toLowerCase();
+
         return (
           validExtensions.image.includes(ext) ||
           validExtensions.video.includes(ext)
         );
       })
-      .map((file, index) => {
+      .map((file, index): GalleryItem => {
         const ext = file.substring(file.lastIndexOf('.')).toLowerCase();
+
         const isImage = validExtensions.image.includes(ext);
-        
+
         return {
           id: `gallery-${index}-${file.replace(/[^a-zA-Z0-9]/g, '')}`,
           name: file.replace(/\.[^/.]+$/, ''),
-          type: (isImage ? 'image' : 'video') as const,
+          type: isImage ? 'image' : 'video',
           src: `/gallery-items/${file}`,
           extension: ext,
-        } as GalleryItem;
+        };
       })
-      .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
-    
+      .sort((a, b) => a.name.localeCompare(b.name));
+
     return NextResponse.json(galleryItems);
   } catch (error) {
     console.error('Gallery API Error:', error);
+
     return NextResponse.json(
       { error: 'Failed to fetch gallery items' },
       { status: 500 }
