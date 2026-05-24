@@ -38,10 +38,10 @@ export async function GET() {
         return {
           id: `gallery-${index}-${file.replace(/[^a-zA-Z0-9]/g, '')}`,
           name: file.replace(/\.[^/.]+$/, ''),
-          type: isImage ? 'image' : 'video',
+          type: (isImage ? 'image' : 'video') as const,
           src: `/gallery-items/${file}`,
           extension: ext,
-        };
+        } as GalleryItem;
       })
       .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
     
