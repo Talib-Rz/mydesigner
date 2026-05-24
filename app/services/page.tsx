@@ -1,13 +1,8 @@
-import type { Metadata } from 'next';
+'use client';
+
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import CTASection from '@/components/CTASection';
-
-export const metadata: Metadata = {
-  title: 'Services - myDesigner',
-  description: 'Explore our four core service pillars: Brand Identity Systems, Campaign Systems, Content & Media Design, and Creative Retainer Support.',
-  keywords: 'design services, branding, campaign design, graphic design',
-};
 
 interface ServiceDetailProps {
   icon: string;
@@ -29,61 +24,66 @@ function ServiceDetail({
   index,
 }: ServiceDetailProps) {
   return (
-    <div className={`py-16 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className={index % 2 === 0 ? 'order-1' : 'md:order-2'}>
-            <div className="text-5xl mb-6">{icon}</div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{title}</h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">{description}</p>
+        {/* Header with Icon, Title, and Description */}
+        <div className="mb-12">
+          <div className="text-6xl mb-6">{icon}</div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{title}</h2>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">{description}</p>
+        </div>
 
-            <div className="mb-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
-              <ul className="space-y-3">
-                {features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-3 text-gray-700"
-                  >
-                    <span className="text-accent font-bold mt-1">✓</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* Landscape Image */}
+        <div className="mb-16 rounded-2xl overflow-hidden shadow-lg h-80 md:h-96 lg:h-[28rem]">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">What You'll Receive</h3>
-              <ul className="space-y-3">
-                {deliverables.map((deliverable) => (
-                  <li
-                    key={deliverable}
-                    className="flex items-start gap-3 text-gray-700"
-                  >
-                    <span className="text-primary-700 font-bold mt-1">→</span>
-                    <span>{deliverable}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* Features & Deliverables Table */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {/* Key Features */}
+          <div className="bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl p-8 md:p-10">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+              <span className="text-primary-700">✓</span>
+              Key Features
+            </h3>
+            <ul className="space-y-4">
+              {features.map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="text-accent font-bold text-lg flex-shrink-0 mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed">{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Visual */}
-          <div
-            className={`relative h-96 rounded-2xl bg-gradient-to-br from-primary-100 via-accent/20 to-primary-50 flex items-center justify-center order-2 ${
-              index % 2 === 0 ? 'md:order-2' : 'md:order-1'
-            }`}
-          >
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover"
-            />
+          {/* What You'll Receive */}
+          <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-8 md:p-10 border border-accent/20">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+              <span className="text-accent">→</span>
+              What You'll Receive
+            </h3>
+            <ul className="space-y-4">
+              {deliverables.map((deliverable, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="text-primary-700 font-bold text-lg flex-shrink-0 mt-1">⬩</span>
+                  <span className="text-gray-700 leading-relaxed">{deliverable}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -212,7 +212,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 grid-center">
             {[
               {
                 number: '150+',

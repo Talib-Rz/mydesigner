@@ -5,8 +5,8 @@ import GalleryClient from '@/components/GalleryClient';
 
 export const metadata: Metadata = {
   title: 'Gallery - myDesigner',
-  description: 'Explore our complete portfolio of design work, campaigns, and creative projects.',
-  keywords: 'gallery, portfolio, design work, creative portfolio',
+  description: 'Explore our complete portfolio of design work organized by categories - campaigns, projects, and creative work.',
+  keywords: 'gallery, portfolio, design work, creative portfolio, campaigns, projects',
 };
 
 export default function GalleryPage() {
@@ -61,7 +61,7 @@ export default function GalleryPage() {
 
 function GalleryLoadingSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 grid-center">
       {Array.from({ length: 9 }).map((_, i) => (
         <div
           key={i}

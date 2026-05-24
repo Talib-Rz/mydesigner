@@ -33,11 +33,15 @@ body {
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight text-center mx-auto;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed;
+    @apply text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed;
+  }
+
+  .grid-center {
+    @apply justify-items-center;
   }
 }
 
@@ -55,4 +59,9 @@ body {
 
 .animate-fade-in-down {
   animation: fadeInDown 0.6s ease-out;
+}
+
+/* Image styles - white background by default */
+img {
+  @apply bg-white;
 }

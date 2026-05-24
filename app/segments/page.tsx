@@ -33,7 +33,7 @@ export default function SegmentsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 grid-center\">
             {b2cSegments.map((segment, index) => (
               <SegmentCard key={segment.id} {...segment} index={index} />
             ))}
@@ -58,7 +58,7 @@ export default function SegmentsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 grid-center\">
             {b2bSegments.map((segment, index) => (
               <SegmentCard key={segment.id} {...segment} index={index + b2cSegments.length} />
             ))}

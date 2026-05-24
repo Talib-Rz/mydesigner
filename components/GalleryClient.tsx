@@ -11,8 +11,13 @@ interface GalleryItem {
   extension: string;
 }
 
+interface GalleryCategory {
+  category: string;
+  items: GalleryItem[];
+}
+
 export default function GalleryClient() {
-  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [categories, setCategories] = useState<GalleryCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,13 +26,13 @@ export default function GalleryClient() {
       try {
         setLoading(true);
         const response = await fetch('/api/gallery');
-        
+
         if (!response.ok) {
           throw new Error('Failed to fetch gallery items');
         }
-        
+
         const data = await response.json();
-        setItems(data);
+        setCategories(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
         console.error('Gallery fetch error:', err);
@@ -41,7 +46,7 @@ export default function GalleryClient() {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 grid-center">
         {Array.from({ length: 9 }).map((_, i) => (
           <div
             key={i}
@@ -66,7 +71,7 @@ export default function GalleryClient() {
     );
   }
 
-  if (items.length === 0) {
+  if (categories.length === 0) {
     return (
       <div className="text-center py-16">
         <div className="text-6xl mb-4">📁</div>
@@ -74,14 +79,15 @@ export default function GalleryClient() {
           Gallery is Empty
         </h3>
         <p className="text-gray-600 mb-6">
-          Add PNG, SVG, or video files to the <code className="bg-gray-100 px-2 py-1 rounded">/public/gallery-items/</code> folder to get started.
+          Create subfolders in <code className="bg-gray-100 px-2 py-1 rounded">/public/gallery-items/</code> and add your images/videos.
         </p>
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto text-left">
           <h4 className="font-semibold text-blue-900 mb-3">Quick Start:</h4>
           <ol className="text-sm text-blue-800 space-y-2 list-decimal list-inside">
-            <li>Add your images (PNG, JPG, WebP, SVG) to <code className="bg-white px-1">/public/gallery-items/</code></li>
-            <li>Add your videos (MP4, WebM, MOV) to the same folder</li>
-            <li>Refresh the page - items will appear automatically!</li>
+            <li>Create subfolders in <code className="bg-white px-1">/public/gallery-items/</code> (e.g., "Portfolio", "Campaigns", "Logos")</li>
+            <li>Add your images (PNG, JPG, WebP, SVG) to each subfolder</li>
+            <li>Add your videos (MP4, WebM, MOV) to each subfolder</li>
+            <li>Refresh the page - categories with items will appear automatically!</li>
             <li>Videos will autoplay when scrolled into view</li>
           </ol>
         </div>
@@ -90,13 +96,28 @@ export default function GalleryClient() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
-      {items.map((item, index) => (
-        <GalleryItem
-          key={item.id}
-          {...item}
-          index={index}
-        />
+    <div className="space-y-16">
+      {categories.map((category, categoryIndex) => (
+        <div key={category.category}>
+          {/* Category Heading */}
+          <div className="mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">
+              {category.category}
+            </h3>
+            <div className="w-16 h-1 bg-gradient-to-r from-primary-700 to-accent rounded-full"></div>
+          </div>
+
+          {/* Category Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 grid-center">
+            {category.items.map((item, index) => (
+              <GalleryItem
+                key={item.id}
+                {...item}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   );

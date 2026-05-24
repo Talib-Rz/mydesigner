@@ -116,7 +116,7 @@ export default function ContactPage() {
       {/* Contact Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 grid-center">
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <div className="space-y-8">

@@ -27,7 +27,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-center">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={testimonial.id}
@@ -45,7 +45,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
           viewport={{ once: true }}
           className="mt-20 pt-16 border-t border-gray-200"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center grid-center">
             <div>
               <p className="text-4xl md:text-5xl font-bold text-primary-700 mb-3">
                 50+

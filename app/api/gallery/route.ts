@@ -1,4 +1,4 @@
-import { readdirSync } from 'fs';
+import { readdirSync, statSync } from 'fs';
 import { join } from 'path';
 import { NextResponse } from 'next/server';
 
@@ -10,12 +10,14 @@ interface GalleryItem {
   extension: string;
 }
 
+interface GalleryCategory {
+  category: string;
+  items: GalleryItem[];
+}
+
 export async function GET() {
   try {
     const galleryDir = join(process.cwd(), 'public/gallery-items');
-
-    // Read files from gallery-items folder
-    const files = readdirSync(galleryDir);
 
     // Valid extensions
     const validExtensions = {
@@ -23,32 +25,57 @@ export async function GET() {
       video: ['.mp4', '.webm', '.mov', '.avi'],
     };
 
-    // Create gallery items
-    const galleryItems: GalleryItem[] = files
-      .filter((file) => {
-        const ext = file.substring(file.lastIndexOf('.')).toLowerCase();
+    // Read all items in gallery-items folder
+    const entries = readdirSync(galleryDir);
+    const categories: GalleryCategory[] = [];
 
-        return (
-          validExtensions.image.includes(ext) ||
-          validExtensions.video.includes(ext)
-        );
-      })
-      .map((file, index): GalleryItem => {
-        const ext = file.substring(file.lastIndexOf('.')).toLowerCase();
+    entries.forEach((entry) => {
+      const fullPath = join(galleryDir, entry);
+      const stat = statSync(fullPath);
 
-        const isImage = validExtensions.image.includes(ext);
+      if (stat.isDirectory()) {
+        // It's a folder - read files inside
+        try {
+          const files = readdirSync(fullPath);
 
-        return {
-          id: `gallery-${index}-${file.replace(/[^a-zA-Z0-9]/g, '')}`,
-          name: file.replace(/\.[^/.]+$/, ''),
-          type: isImage ? 'image' : 'video',
-          src: `/gallery-items/${file}`,
-          extension: ext,
-        };
-      })
-      .sort((a, b) => a.name.localeCompare(b.name));
+          const items: GalleryItem[] = files
+            .filter((file) => {
+              const ext = file.substring(file.lastIndexOf('.')).toLowerCase();
+              return (
+                validExtensions.image.includes(ext) ||
+                validExtensions.video.includes(ext)
+              );
+            })
+            .map((file, index): GalleryItem => {
+              const ext = file.substring(file.lastIndexOf('.')).toLowerCase();
+              const isImage = validExtensions.image.includes(ext);
 
-    return NextResponse.json(galleryItems);
+              return {
+                id: `gallery-${entry}-${index}-${file.replace(/[^a-zA-Z0-9]/g, '')}`,
+                name: file.replace(/\.[^/.]+$/, ''),
+                type: isImage ? 'image' : 'video',
+                src: `/gallery-items/${entry}/${file}`,
+                extension: ext,
+              };
+            })
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+          if (items.length > 0) {
+            categories.push({
+              category: entry,
+              items,
+            });
+          }
+        } catch (err) {
+          console.warn(`Failed to read folder: ${entry}`, err);
+        }
+      }
+    });
+
+    // Sort categories alphabetically
+    categories.sort((a, b) => a.category.localeCompare(b.category));
+
+    return NextResponse.json(categories);
   } catch (error) {
     console.error('Gallery API Error:', error);
 

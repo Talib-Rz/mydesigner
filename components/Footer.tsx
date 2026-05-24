@@ -24,7 +24,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16 grid-center">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent mb-6">

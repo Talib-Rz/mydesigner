@@ -77,7 +77,7 @@ export default function CaseStudiesPage() {
       {/* Case Studies Grid */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 grid-center">
             {caseStudies.map((study, index) => (
               <CaseStudyCard key={study.id} {...study} index={index} />
             ))}
@@ -105,7 +105,7 @@ export default function CaseStudiesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 my-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 my-12 grid-center">
               {/* Challenge */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">The Challenge</h3>
@@ -124,7 +124,7 @@ export default function CaseStudiesPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">The Impact</h3>
               <p className="text-gray-700 leading-relaxed mb-6">{study.impact}</p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 grid-center">
                 {study.results.map((result, idx) => (
                   <div key={idx} className="bg-white rounded-lg p-4 border border-primary-100">
                     <p className="text-sm text-gray-600 mb-2">Result {idx + 1}</p>
@@ -142,7 +142,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-center mb-12">Our Track Record</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 grid-center">
             {[
               { number: '50+', label: 'Active Clients' },
               { number: '150+', label: 'Projects Delivered' },

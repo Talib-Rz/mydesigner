@@ -58,7 +58,7 @@ export default function Home() {
         {/* B2C Segment */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">For Businesses & Events</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 grid-center">
             {b2cSegments.map((segment, index) => (
               <SegmentCard key={segment.id} {...segment} index={index} />
             ))}
@@ -68,7 +68,7 @@ export default function Home() {
         {/* B2B Segment */}
         <div>
           <h3 className="text-2xl font-bold text-gray-900 mb-8">For Agencies & Organizations</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 grid-center">
             {b2bSegments.map((segment, index) => (
               <SegmentCard key={segment.id} {...segment} index={index + 2} />
             ))}
@@ -106,7 +106,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 grid-center">
           {servicePillars.map((service, index) => (
             <ServiceCard
               key={service.id}
@@ -132,7 +132,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 grid-center">
           {caseStudies.map((study, index) => (
             <CaseStudyCard key={study.id} {...study} index={index} />
           ))}
