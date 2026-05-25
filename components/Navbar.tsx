@@ -107,19 +107,19 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-0 right-0 w-full bg-white border-t border-gray-100 shadow-lg z-50 md:hidden"
+              className="absolute top-full left-0 right-0 w-full bg-white border-t border-gray-100 shadow-lg z-50 md:hidden max-h-[calc(100vh-80px)] overflow-y-auto"
             >
-              <div className="flex flex-col gap-4 pt-4 pb-6 px-6 md:px-8 lg:px-12">
+              <div className="flex flex-col gap-1 pt-4 pb-6 px-4 sm:px-6">
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href;
                   return (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`font-medium transition-colors py-2 ${
+                      className={`font-medium transition-colors py-3 px-4 rounded text-sm ${
                         isActive
-                          ? 'text-primary-700 border-l-4 border-primary-700 pl-3'
-                          : 'text-gray-700 hover:text-primary-700'
+                          ? 'text-primary-700 bg-primary-50 border-l-4 border-primary-700'
+                          : 'text-gray-700 hover:text-primary-700 hover:bg-gray-50'
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
@@ -127,13 +127,15 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
-                <Link
-                  href="/contact"
-                  className="btn-primary mt-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Get In Touch
-                </Link>
+                <div className="pt-3 border-t border-gray-200 mt-3">
+                  <Link
+                    href="/contact"
+                    className="btn-primary w-full justify-center"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Get In Touch
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </>

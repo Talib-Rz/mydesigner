@@ -23,17 +23,17 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16 grid-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16">
           {/* Company Info */}
-          <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent mb-6">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent mb-4 sm:mb-6">
               myDesigner
             </h3>
-            <p className="text-gray-400 mb-8 leading-relaxed">
+            <p className="text-gray-400 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
               Premium visual branding and campaign studio for brands and events that demand excellence.
             </p>
-            <div className="flex gap-5">
+            <div className="flex gap-4 sm:gap-5">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -51,13 +51,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-accent transition-colors duration-200"
+                    className="text-gray-400 hover:text-accent transition-colors duration-200 text-sm sm:text-base"
                   >
                     {link.label}
                   </Link>
@@ -68,8 +68,8 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Services</h4>
-            <ul className="space-y-3 text-gray-400">
+            <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Services</h4>
+            <ul className="space-y-2 sm:space-y-3 text-gray-400 text-sm sm:text-base">
               <li>Brand Identity Systems</li>
               <li>Campaign Systems</li>
               <li>Content & Media Design</li>
@@ -79,28 +79,28 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact</h4>
-            <ul className="space-y-4 text-gray-400">
+            <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Contact</h4>
+            <ul className="space-y-3 sm:space-y-4 text-gray-400 text-sm sm:text-base">
               <li className="flex gap-3 items-start">
-                <HiMail size={20} className="mt-1 flex-shrink-0 text-accent" />
-                <a href="mailto:mydesigner2024@gmail.com" className="hover:text-accent transition-colors">
+                <HiMail size={20} className="mt-0.5 flex-shrink-0 text-accent" />
+                <a href="mailto:mydesigner2024@gmail.com" className="hover:text-accent transition-colors break-all">
                   mydesigner2024@gmail.com
                 </a>
               </li>
               <li className="flex gap-3 items-start">
-                <HiPhone size={20} className="mt-1 flex-shrink-0 text-accent" />
+                <HiPhone size={20} className="mt-0.5 flex-shrink-0 text-accent" />
                 <a href="tel:+918252348421" className="hover:text-accent transition-colors">
                   +91 82523 48421
                 </a>
               </li>
               <li className="flex gap-3 items-start">
-                <FaWhatsapp size={20} className="mt-1 flex-shrink-0 text-green-400" />
+                <FaWhatsapp size={20} className="mt-0.5 flex-shrink-0 text-green-400" />
                 <a href="https://wa.me/918252348421" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
                   WhatsApp
                 </a>
               </li>
               <li className="flex gap-3 items-start">
-                <FaMapMarker size={20} className="mt-1 flex-shrink-0 text-accent" />
+                <FaMapMarker size={20} className="mt-0.5 flex-shrink-0 text-accent" />
                 <span>India</span>
               </li>
             </ul>
@@ -109,9 +109,9 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 text-xs sm:text-sm text-center sm:text-left">
             <p>&copy; {currentYear} myDesigner. All rights reserved.</p>
-            <div className="flex gap-6">
+            <div className="flex gap-4 sm:gap-6">
               <Link href="#" className="hover:text-accent transition-colors">
                 Privacy Policy
               </Link>

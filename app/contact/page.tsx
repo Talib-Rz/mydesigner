@@ -116,21 +116,21 @@ export default function ContactPage() {
       {/* Contact Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 grid-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Contact Information */}
             <div className="lg:col-span-1">
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {/* Email */}
                 <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-700">
-                      <HiMail size={24} />
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-700 flex-shrink-0">
+                      <HiMail size={20} />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">Email</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900">Email</h3>
                   </div>
                   <a
                     href="mailto:mydesigner2024@gmail.com"
-                    className="text-gray-600 hover:text-primary-700 transition-colors break-all"
+                    className="text-gray-600 hover:text-primary-700 transition-colors break-all text-sm sm:text-base"
                   >
                     mydesigner2024@gmail.com
                   </a>
@@ -138,15 +138,15 @@ export default function ContactPage() {
 
                 {/* Phone */}
                 <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-700">
-                      <HiPhone size={24} />
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-700 flex-shrink-0">
+                      <HiPhone size={20} />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">Phone</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900">Phone</h3>
                   </div>
                   <a
                     href="tel:+918252348421"
-                    className="text-gray-600 hover:text-primary-700 transition-colors"
+                    className="text-gray-600 hover:text-primary-700 transition-colors text-sm sm:text-base"
                   >
                     +91 82523 48421
                   </a>
@@ -154,17 +154,17 @@ export default function ContactPage() {
 
                 {/* WhatsApp */}
                 <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-700">
-                      <FaWhatsapp size={24} />
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-700 flex-shrink-0">
+                      <FaWhatsapp size={20} />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">WhatsApp</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900">WhatsApp</h3>
                   </div>
                   <a
                     href="https://wa.me/918252348421"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-green-700 transition-colors"
+                    className="text-gray-600 hover:text-green-700 transition-colors text-sm sm:text-base"
                   >
                     +91 82523 48421
                   </a>
@@ -172,13 +172,13 @@ export default function ContactPage() {
 
                 {/* Location */}
                 <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-700">
-                      <FaMapMarker size={24} />
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-700 flex-shrink-0">
+                      <FaMapMarker size={20} />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">Location</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-gray-900">Location</h3>
                   </div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 text-sm sm:text-base">
                     India
                     <br />
                     Primarily serving India with projects nationwide
@@ -186,8 +186,8 @@ export default function ContactPage() {
                 </div>
 
                 {/* Response Time */}
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mt-8">
-                  <p className="text-sm text-blue-900">
+                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 sm:p-6 mt-6 sm:mt-8">
+                  <p className="text-xs sm:text-sm text-blue-900">
                     <span className="font-bold">Response Time:</span> We typically respond to all inquiries within 24 hours.
                   </p>
                 </div>
@@ -196,12 +196,12 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-8">
                 {/* Name */}
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-base font-bold text-gray-900 mb-3"
+                    className="block text-sm sm:text-base font-bold text-gray-900 mb-2 sm:mb-3"
                   >
                     Your Name *
                   </label>
@@ -211,7 +211,7 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-5 py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base ${
+                    className={`w-full px-4 sm:px-5 py-2.5 sm:py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-sm sm:text-base ${
                       errors.name
                         ? 'border-red-500'
                         : 'border-gray-200 hover:border-gray-300 focus:border-primary-600'
@@ -219,7 +219,7 @@ export default function ContactPage() {
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p className="text-red-600 text-sm mt-2 font-medium">{errors.name}</p>
+                    <p className="text-red-600 text-xs sm:text-sm mt-2 font-medium">{errors.name}</p>
                   )}
                 </div>
 
@@ -227,7 +227,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-base font-bold text-gray-900 mb-3"
+                    className="block text-sm sm:text-base font-bold text-gray-900 mb-2 sm:mb-3"
                   >
                     Email Address *
                   </label>
@@ -237,7 +237,7 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-5 py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base ${
+                    className={`w-full px-4 sm:px-5 py-2.5 sm:py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-sm sm:text-base ${
                       errors.email
                         ? 'border-red-500'
                         : 'border-gray-200 hover:border-gray-300 focus:border-primary-600'
@@ -245,7 +245,7 @@ export default function ContactPage() {
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p className="text-red-600 text-sm mt-2 font-medium">{errors.email}</p>
+                    <p className="text-red-600 text-xs sm:text-sm mt-2 font-medium">{errors.email}</p>
                   )}
                 </div>
 
@@ -253,7 +253,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-base font-bold text-gray-900 mb-3"
+                    className="block text-sm sm:text-base font-bold text-gray-900 mb-2 sm:mb-3"
                   >
                     Phone Number
                   </label>
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-5 py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base"
+                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-sm sm:text-base"
                     placeholder="+91 98765 43210"
                   />
                 </div>
@@ -272,7 +272,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="company"
-                    className="block text-base font-bold text-gray-900 mb-3"
+                    className="block text-sm sm:text-base font-bold text-gray-900 mb-2 sm:mb-3"
                   >
                     Company / Organization
                   </label>
@@ -282,7 +282,7 @@ export default function ContactPage() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-5 py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base"
+                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-sm sm:text-base"
                     placeholder="Your Company"
                   />
                 </div>
@@ -291,7 +291,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="projectType"
-                    className="block text-base font-bold text-gray-900 mb-3"
+                    className="block text-sm sm:text-base font-bold text-gray-900 mb-2 sm:mb-3"
                   >
                     Project Type
                   </label>
@@ -300,7 +300,7 @@ export default function ContactPage() {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-5 py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-base"
+                    className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 border-2 border-gray-200 hover:border-gray-300 rounded-lg focus:outline-none focus:border-primary-600 transition-colors text-sm sm:text-base"
                   >
                     <option value="">Select a project type</option>
                     <option value="brand-identity">Brand Identity System</option>
@@ -315,7 +315,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-base font-bold text-gray-900 mb-3"
+                    className="block text-sm sm:text-base font-bold text-gray-900 mb-2 sm:mb-3"
                   >
                     Tell us about your project *
                   </label>
@@ -324,8 +324,8 @@ export default function ContactPage() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={7}
-                    className={`w-full px-5 py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors resize-none text-base ${
+                    rows={6}
+                    className={`w-full px-4 sm:px-5 py-2.5 sm:py-3.5 border-2 rounded-lg focus:outline-none focus:border-primary-600 transition-colors resize-none text-sm sm:text-base ${
                       errors.message
                         ? 'border-red-500'
                         : 'border-gray-200 hover:border-gray-300 focus:border-primary-600'
@@ -333,7 +333,7 @@ export default function ContactPage() {
                     placeholder="What's your vision? What are you trying to achieve?"
                   />
                   {errors.message && (
-                    <p className="text-red-600 text-sm mt-2 font-medium">{errors.message}</p>
+                    <p className="text-red-600 text-xs sm:text-sm mt-2 font-medium">{errors.message}</p>
                   )}
                 </div>
 
@@ -341,7 +341,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full btn-primary py-4 text-lg font-bold disabled:opacity-70 disabled:cursor-not-allowed mt-10"
+                  className="w-full btn-primary py-3 sm:py-4 text-base sm:text-lg font-bold disabled:opacity-70 disabled:cursor-not-allowed mt-6 sm:mt-10"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </button>

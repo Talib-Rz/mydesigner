@@ -53,7 +53,7 @@ export default function Hero({
           {/* Main Title */}
           <motion.h1
             variants={showAnimation ? itemVariants : {}}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-4"
           >
             {title.split(' ').map((word, i) => (
               <span key={i}>
@@ -65,7 +65,7 @@ export default function Hero({
           {/* Subtitle */}
           <motion.p
             variants={showAnimation ? itemVariants : {}}
-            className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto px-4"
           >
             {subtitle}
           </motion.p>
@@ -73,7 +73,7 @@ export default function Hero({
           {/* CTA Buttons */}
           <motion.div
             variants={showAnimation ? itemVariants : {}}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-stretch sm:items-center mt-8 sm:mt-10 px-4"
           >
             {primaryCta && (
               <Link href={primaryCta.href} className="btn-primary">

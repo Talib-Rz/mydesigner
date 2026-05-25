@@ -61,7 +61,7 @@ export default function GalleryPage() {
 
 function GalleryLoadingSkeleton() {
   return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8 grid-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
       {Array.from({ length: 9 }).map((_, i) => (
         <div
           key={i}

@@ -21,7 +21,7 @@ export default function AboutPage() {
       {/* Mission & Vision Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 grid-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 mb-16 sm:mb-20">
             {/* Mission */}
             <div>
               <div className="text-5xl mb-6">🎯</div>
@@ -50,7 +50,7 @@ export default function AboutPage() {
           {/* Values */}
           <div className="bg-gradient-to-br from-primary-50 to-accent/5 rounded-2xl p-12 border border-primary-100">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Values</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 grid-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
                   icon: '💎',
@@ -99,7 +99,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-center mb-12">Why Work With Us?</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 grid-center\">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {[
               {
                 number: '01',
@@ -156,7 +156,7 @@ export default function AboutPage() {
             A small but mighty team of designers, strategists, and creative thinkers passionate about design excellence.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 grid-center\">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 name: 'Priya Sharma',
@@ -211,7 +211,7 @@ export default function AboutPage() {
             We leverage modern AI tools to enhance our creative process while maintaining the human touch that makes design exceptional.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 grid-center\">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">How We Use AI</h3>
               <ul className="space-y-4">
@@ -247,7 +247,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 grid-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {[
               { number: '5+', label: 'Years in Business' },
               { number: '150+', label: 'Projects Delivered' },

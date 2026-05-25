@@ -77,7 +77,7 @@ export default function CaseStudiesPage() {
       {/* Case Studies Grid */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 grid-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {caseStudies.map((study, index) => (
               <CaseStudyCard key={study.id} {...study} index={index} />
             ))}
@@ -92,42 +92,42 @@ export default function CaseStudiesPage() {
           id={`study-${study.id}`}
           className={`section-padding ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
         >
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto px-4">
             <div className="mb-8">
-              <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-bold mb-4">
+              <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 text-primary-700 rounded-full text-xs sm:text-sm font-bold mb-4">
                 {study.category}
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
                 {study.title}
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                 {study.description}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 my-12 grid-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 my-8 sm:my-12">
               {/* Challenge */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">The Challenge</h3>
-                <p className="text-gray-700 leading-relaxed">{study.challenge}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">The Challenge</h3>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{study.challenge}</p>
               </div>
 
               {/* Solution */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Solution</h3>
-                <p className="text-gray-700 leading-relaxed">{study.solution}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Solution</h3>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{study.solution}</p>
               </div>
             </div>
 
             {/* Impact */}
-            <div className="bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl p-8 mb-12 border border-primary-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">The Impact</h3>
-              <p className="text-gray-700 leading-relaxed mb-6">{study.impact}</p>
+            <div className="bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 border border-primary-100">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">The Impact</h3>
+              <p className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">{study.impact}</p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 grid-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                 {study.results.map((result, idx) => (
                   <div key={idx} className="bg-white rounded-lg p-4 border border-primary-100">
-                    <p className="text-sm text-gray-600 mb-2">Result {idx + 1}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2">Result {idx + 1}</p>
                     <p className="font-semibold text-gray-900">{result}</p>
                   </div>
                 ))}
@@ -142,7 +142,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-center mb-12">Our Track Record</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 grid-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { number: '50+', label: 'Active Clients' },
               { number: '150+', label: 'Projects Delivered' },

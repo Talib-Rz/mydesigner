@@ -13,15 +13,15 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-block px-8 py-3.5 bg-primary-700 text-white rounded-lg font-semibold text-base transition-all duration-300 hover:bg-primary-800 hover:shadow-lg relative z-10 whitespace-nowrap;
+    @apply inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-primary-700 text-white rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-primary-800 hover:shadow-lg relative z-10 whitespace-nowrap h-auto;
   }
 
   .btn-secondary {
-    @apply inline-block px-8 py-3.5 bg-white text-primary-700 border-2 border-primary-700 rounded-lg font-semibold text-base transition-all duration-300 hover:bg-primary-50 relative z-10 whitespace-nowrap;
+    @apply inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-white text-primary-700 border-2 border-primary-700 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-primary-50 relative z-10 whitespace-nowrap h-auto;
   }
 
   .section-padding {
-    @apply px-6 md:px-8 lg:px-12 py-20 md:py-32;
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-32;
   }
 
   .gradient-text {
@@ -33,15 +33,11 @@ body {
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight text-center mx-auto;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight text-center mx-auto;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed;
-  }
-
-  .grid-center {
-    @apply justify-items-center;
+    @apply text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center leading-relaxed px-2;
   }
 }
 
@@ -63,5 +59,17 @@ body {
 
 /* Image styles - white background by default */
 img {
-  @apply bg-white;
+  @apply bg-white max-w-full h-auto;
+}
+
+/* Responsive form inputs */
+input, textarea, select {
+  @apply w-full text-base;
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .max-w-7xl {
+    @apply px-4;
+  }
 }

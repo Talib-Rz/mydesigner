@@ -29,18 +29,18 @@ function ServiceDetail({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={`py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+      className={`py-16 sm:py-20 md:py-32 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header with Icon, Title, and Description */}
-        <div className="mb-12">
-          <div className="text-6xl mb-6">{icon}</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{title}</h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">{description}</p>
+        <div className="mb-8 sm:mb-12">
+          <div className="text-5xl sm:text-6xl mb-4 sm:mb-6">{icon}</div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">{title}</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">{description}</p>
         </div>
 
         {/* Landscape Image */}
-        <div className="mb-16 rounded-2xl overflow-hidden shadow-lg h-80 md:h-96 lg:h-[28rem]">
+        <div className="mb-12 sm:mb-16 rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80 md:h-96 lg:h-[28rem]">
           <img
             src={image}
             alt={title}
@@ -49,34 +49,34 @@ function ServiceDetail({
         </div>
 
         {/* Features & Deliverables Table */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           {/* Key Features */}
-          <div className="bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl p-8 md:p-10">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-              <span className="text-primary-700">✓</span>
+          <div className="bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-2xl p-6 sm:p-8 md:p-10">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center gap-3">
+              <span className="text-primary-700 text-lg sm:text-xl">✓</span>
               Key Features
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <span className="text-accent font-bold text-lg flex-shrink-0 mt-1">•</span>
-                  <span className="text-gray-700 leading-relaxed">{feature}</span>
+                <li key={idx} className="flex items-start gap-3 sm:gap-4">
+                  <span className="text-accent font-bold text-base sm:text-lg flex-shrink-0 mt-0.5 sm:mt-1">•</span>
+                  <span className="text-gray-700 leading-relaxed text-sm sm:text-base">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* What You'll Receive */}
-          <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-8 md:p-10 border border-accent/20">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-              <span className="text-accent">→</span>
+          <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-6 sm:p-8 md:p-10 border border-accent/20">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center gap-3">
+              <span className="text-accent text-lg sm:text-xl">→</span>
               What You'll Receive
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {deliverables.map((deliverable, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <span className="text-primary-700 font-bold text-lg flex-shrink-0 mt-1">⬩</span>
-                  <span className="text-gray-700 leading-relaxed">{deliverable}</span>
+                <li key={idx} className="flex items-start gap-3 sm:gap-4">
+                  <span className="text-primary-700 font-bold text-base sm:text-lg flex-shrink-0 mt-0.5 sm:mt-1">⬩</span>
+                  <span className="text-gray-700 leading-relaxed text-sm sm:text-base">{deliverable}</span>
                 </li>
               ))}
             </ul>
@@ -212,7 +212,7 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 grid-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 number: '150+',

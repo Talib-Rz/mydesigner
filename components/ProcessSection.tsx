@@ -19,19 +19,19 @@ function ProcessStep({ number, title, description, index }: ProcessStepProps) {
       className="relative"
     >
       {/* Card */}
-      <div className="bg-white rounded-2xl p-10 h-full card-shadow flex flex-col">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 h-full card-shadow flex flex-col">
         {/* Number Badge */}
-        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-700 to-accent rounded-2xl text-white text-3xl font-bold mb-8 flex-shrink-0">
+        <div className="inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-br from-primary-700 to-accent rounded-2xl text-white text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex-shrink-0">
           {number}
         </div>
 
-        <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">{title}</h3>
-        <p className="text-gray-600 leading-relaxed flex-1">{description}</p>
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">{title}</h3>
+        <p className="text-gray-600 leading-relaxed flex-1 text-sm sm:text-base">{description}</p>
       </div>
 
       {/* Connecting Line (hidden on mobile, shown on desktop) */}
       {index < 5 && (
-        <div className="hidden lg:block absolute top-28 left-full w-8 h-0.5 bg-gradient-to-r from-primary-700 to-accent transform translate-y-6" />
+        <div className="hidden lg:block absolute top-24 sm:top-28 left-full w-8 h-0.5 bg-gradient-to-r from-primary-700 to-accent transform translate-y-6" />
       )}
     </motion.div>
   );
@@ -55,7 +55,7 @@ export default function ProcessSection({ steps }: ProcessSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-16 sm:mb-20"
         >
           <h2 className="section-title">Our Process</h2>
           <p className="section-subtitle">
@@ -64,7 +64,7 @@ export default function ProcessSection({ steps }: ProcessSectionProps) {
         </motion.div>
 
         {/* Process Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <ProcessStep
               key={step.number}

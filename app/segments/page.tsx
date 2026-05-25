@@ -33,7 +33,7 @@ export default function SegmentsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 grid-center\">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {b2cSegments.map((segment, index) => (
               <SegmentCard key={segment.id} {...segment} index={index} />
             ))}
@@ -58,7 +58,7 @@ export default function SegmentsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 grid-center\">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {b2bSegments.map((segment, index) => (
               <SegmentCard key={segment.id} {...segment} index={index + b2cSegments.length} />
             ))}
@@ -78,13 +78,14 @@ export default function SegmentsPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title mb-12 text-center">Our Segment Expertise</h2>
 
-          <div className="overflow-x-auto">
+          {/* Desktop Table */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-6 font-bold text-gray-900">Segment</th>
-                  <th className="text-left py-4 px-6 font-bold text-gray-900">Typical Projects</th>
-                  <th className="text-left py-4 px-6 font-bold text-gray-900">Our Expertise</th>
+                  <th className="text-left py-4 px-4 sm:px-6 font-bold text-gray-900 text-sm sm:text-base">Segment</th>
+                  <th className="text-left py-4 px-4 sm:px-6 font-bold text-gray-900 text-sm sm:text-base">Typical Projects</th>
+                  <th className="text-left py-4 px-4 sm:px-6 font-bold text-gray-900 text-sm sm:text-base">Our Expertise</th>
                 </tr>
               </thead>
               <tbody>
@@ -121,13 +122,61 @@ export default function SegmentsPage() {
                   },
                 ].map((row) => (
                   <tr key={row.segment} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="py-4 px-6 font-semibold text-gray-900">{row.segment}</td>
-                    <td className="py-4 px-6 text-gray-700">{row.projects}</td>
-                    <td className="py-4 px-6 text-gray-700">{row.expertise}</td>
+                    <td className="py-4 px-4 sm:px-6 font-semibold text-gray-900 text-sm sm:text-base">{row.segment}</td>
+                    <td className="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">{row.projects}</td>
+                    <td className="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">{row.expertise}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile Cards */}
+          <div className="md:hidden space-y-4">
+            {[
+              {
+                segment: 'College Events',
+                projects: 'Fests, Conferences, Workshops',
+                expertise: 'Student-centric design, viral campaigns, event theming',
+              },
+              {
+                segment: 'Startups',
+                projects: 'Brand identity, product launches, pitch decks',
+                expertise: 'Modern design systems, scalable branding, growth marketing',
+              },
+              {
+                segment: 'EdTech',
+                projects: 'Platform design, course branding, content creation',
+                expertise: 'Educational aesthetics, user engagement, video production',
+              },
+              {
+                segment: 'Real Estate',
+                projects: 'Project launches, luxury branding, marketing collateral',
+                expertise: 'Premium positioning, architectural visualization, luxury design',
+              },
+              {
+                segment: 'Marketing Agencies',
+                projects: 'Client campaigns, retainer work, campaign conceptualization',
+                expertise: 'Fast turnarounds, diverse styles, scalable solutions',
+              },
+              {
+                segment: 'NGOs',
+                projects: 'Brand identity, campaign design, donor materials',
+                expertise: 'Impact-focused design, limited budgets, mission-driven work',
+              },
+            ].map((row) => (
+              <div key={row.segment} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <h3 className="font-bold text-gray-900 mb-2 text-base">{row.segment}</h3>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div>
+                    <span className="font-semibold text-gray-900">Projects:</span> {row.projects}
+                  </div>
+                  <div>
+                    <span className="font-semibold text-gray-900">Expertise:</span> {row.expertise}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
