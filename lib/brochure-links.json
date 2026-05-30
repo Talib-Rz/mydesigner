@@ -1,0 +1,84 @@
+{
+  "brochureDesigns": [
+    {
+      "fileName": "unnamed.jpg",
+      "displayName": "Modern Brochure 1",
+      "url": "https://example.com/brochure-1"
+    },
+    {
+      "fileName": "unnamed.png",
+      "displayName": "Professional Brochure 2",
+      "url": "https://example.com/brochure-2"
+    },
+    {
+      "fileName": "unnamed (1).jpg",
+      "displayName": "Corporate Brochure 3",
+      "url": "https://example.com/brochure-3"
+    },
+    {
+      "fileName": "unnamed (1).png",
+      "displayName": "Creative Brochure 4",
+      "url": "https://example.com/brochure-4"
+    },
+    {
+      "fileName": "unnamed (2).png",
+      "displayName": "Business Brochure 5",
+      "url": "https://example.com/brochure-5"
+    },
+    {
+      "fileName": "unnamed (3).png",
+      "displayName": "Executive Brochure 6",
+      "url": "https://example.com/brochure-6"
+    },
+    {
+      "fileName": "unnamed (4).png",
+      "displayName": "Premium Brochure 7",
+      "url": "https://example.com/brochure-7"
+    },
+    {
+      "fileName": "unnamed (5).png",
+      "displayName": "Elegant Brochure 8",
+      "url": "https://example.com/brochure-8"
+    },
+    {
+      "fileName": "unnamed (6).png",
+      "displayName": "Modern Design 9",
+      "url": "https://example.com/brochure-9"
+    },
+    {
+      "fileName": "unnamed (7).png",
+      "displayName": "Contemporary Brochure 10",
+      "url": "https://example.com/brochure-10"
+    },
+    {
+      "fileName": "unnamed (8).png",
+      "displayName": "Sleek Brochure 11",
+      "url": "https://example.com/brochure-11"
+    },
+    {
+      "fileName": "unnamed (9).png",
+      "displayName": "Dynamic Brochure 12",
+      "url": "https://example.com/brochure-12"
+    },
+    {
+      "fileName": "unnamed (10).png",
+      "displayName": "Innovative Design 13",
+      "url": "https://example.com/brochure-13"
+    },
+    {
+      "fileName": "unnamed (11).png",
+      "displayName": "Bold Brochure 14",
+      "url": "https://example.com/brochure-14"
+    },
+    {
+      "fileName": "unnamed (12).png",
+      "displayName": "Vibrant Brochure 15",
+      "url": "https://example.com/brochure-15"
+    },
+    {
+      "fileName": "unnamed (13).png",
+      "displayName": "Stylish Design 16",
+      "url": "https://example.com/brochure-16"
+    }
+  ]
+}

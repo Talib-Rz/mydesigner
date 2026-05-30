@@ -9,6 +9,8 @@ interface GalleryItem {
   type: 'image' | 'video';
   src: string;
   extension: string;
+  orientation?: string;
+  section?: string;
 }
 
 interface GalleryCategory {
@@ -16,23 +18,47 @@ interface GalleryCategory {
   items: GalleryItem[];
 }
 
+interface BrochureLink {
+  fileName: string;
+  displayName: string;
+  url: string;
+}
+
 export default function GalleryClient() {
   const [categories, setCategories] = useState<GalleryCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [brochureLinks, setBrochureLinks] = useState<{ [key: string]: BrochureLink }>({});
 
   useEffect(() => {
-    const fetchGalleryItems = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/gallery');
 
-        if (!response.ok) {
+        // Fetch gallery items
+        const galleryResponse = await fetch('/api/gallery');
+        if (!galleryResponse.ok) {
           throw new Error('Failed to fetch gallery items');
         }
+        const galleryData = await galleryResponse.json();
+        setCategories(galleryData);
 
-        const data = await response.json();
-        setCategories(data);
+        // Fetch brochure links
+        try {
+          const brochureResponse = await fetch('/brochure-links.json');
+          if (brochureResponse.ok) {
+            const brochureData = await brochureResponse.json();
+            // Create a map for easy lookup (case-insensitive)
+            const linksMap: { [key: string]: BrochureLink } = {};
+            brochureData.brochureDesigns.forEach((link: BrochureLink) => {
+              // Store with lowercase key for case-insensitive lookup
+              linksMap[link.fileName.toLowerCase()] = link;
+            });
+            setBrochureLinks(linksMap);
+          }
+        } catch (err) {
+          console.warn('Failed to load brochure links:', err);
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
         console.error('Gallery fetch error:', err);
@@ -41,7 +67,7 @@ export default function GalleryClient() {
       }
     };
 
-    fetchGalleryItems();
+    fetchData();
   }, []);
 
   if (loading) {
@@ -97,28 +123,80 @@ export default function GalleryClient() {
 
   return (
     <div className="space-y-16">
-      {categories.map((category, categoryIndex) => (
-        <div key={category.category}>
-          {/* Category Heading */}
-          <div className="mb-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">
-              {category.category}
-            </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-primary-700 to-accent rounded-full"></div>
-          </div>
+      {categories.map((category, categoryIndex) => {
+        // Check if this category has orientation sections
+        const hasOrientationSections = category.items.some((item) => item.section);
 
-          {/* Category Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {category.items.map((item, index) => (
-              <GalleryItem
-                key={item.id}
-                {...item}
-                index={index}
-              />
-            ))}
+        // Group items by section if sections exist
+        let itemsGroups: Array<{ section: string; items: GalleryItem[] }> = [];
+        if (hasOrientationSections) {
+          const groupMap = new Map<string, GalleryItem[]>();
+          category.items.forEach((item) => {
+            const section = item.section || 'Other';
+            if (!groupMap.has(section)) {
+              groupMap.set(section, []);
+            }
+            groupMap.get(section)!.push(item);
+          });
+          itemsGroups = Array.from(groupMap.entries()).map(([section, items]) => ({
+            section,
+            items,
+          }));
+        } else {
+          itemsGroups = [
+            {
+              section: 'all',
+              items: category.items,
+            },
+          ];
+        }
+
+        return (
+          <div key={category.category}>
+            {/* Category Heading */}
+            <div className="mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                {category.category}
+              </h3>
+              <div className="w-16 h-1 bg-gradient-to-r from-primary-700 to-accent rounded-full"></div>
+            </div>
+
+            {/* Category Items with Section Breaks */}
+            <div className="space-y-6 lg:space-y-8">
+              {itemsGroups.map((group, groupIndex) => (
+                <div key={`${category.category}-${group.section}`}>
+                  {/* Grid for each section */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                    {group.items.map((item, index) => {
+                      // Get brochure link if available
+                      const brochureLink =
+                        category.category === 'Brochure Designs'
+                          ? brochureLinks[
+                              (item.name + (item.extension || '')).toLowerCase()
+                            ]
+                          : null;
+
+                      return (
+                        <GalleryItem
+                          key={item.id}
+                          {...item}
+                          index={index}
+                          brochureLink={brochureLink}
+                          category={category.category}
+                        />
+                      );
+                    })}
+                  </div>
+                  {/* Line break after each section (except last) */}
+                  {groupIndex < itemsGroups.length - 1 && (
+                    <div className="my-6 lg:my-8 border-t border-gray-200"></div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
