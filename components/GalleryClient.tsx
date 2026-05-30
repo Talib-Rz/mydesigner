@@ -29,6 +29,7 @@ export default function GalleryClient() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [brochureLinks, setBrochureLinks] = useState<{ [key: string]: BrochureLink }>({});
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -124,14 +125,17 @@ export default function GalleryClient() {
   return (
     <div className="space-y-16">
       {categories.map((category, categoryIndex) => {
+        // Only show images in the gallery (remove videos)
+        const imageItems = category.items.filter((it) => it.type === 'image');
+
         // Check if this category has orientation sections
-        const hasOrientationSections = category.items.some((item) => item.section);
+        const hasOrientationSections = imageItems.some((item) => item.section);
 
         // Group items by section if sections exist
         let itemsGroups: Array<{ section: string; items: GalleryItem[] }> = [];
         if (hasOrientationSections) {
           const groupMap = new Map<string, GalleryItem[]>();
-          category.items.forEach((item) => {
+          imageItems.forEach((item) => {
             const section = item.section || 'Other';
             if (!groupMap.has(section)) {
               groupMap.set(section, []);
@@ -146,7 +150,7 @@ export default function GalleryClient() {
           itemsGroups = [
             {
               section: 'all',
-              items: category.items,
+              items: imageItems,
             },
           ];
         }
@@ -167,13 +171,11 @@ export default function GalleryClient() {
                 <div key={`${category.category}-${group.section}`}>
                   {/* Grid for each section */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                    {group.items.map((item, index) => {
+                                    {group.items.map((item, index) => {
                       // Get brochure link if available
                       const brochureLink =
                         category.category === 'Brochure Designs'
-                          ? brochureLinks[
-                              (item.name + (item.extension || '')).toLowerCase()
-                            ]
+                          ? brochureLinks[item.name.toLowerCase()]
                           : null;
 
                       return (
@@ -197,6 +199,7 @@ export default function GalleryClient() {
           </div>
         );
       })}
+      
     </div>
   );
 }
