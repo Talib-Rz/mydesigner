@@ -48,6 +48,7 @@ export default function TestimonialCard({
         {/* Client Image */}
         <div className="w-12 sm:w-16 h-12 sm:h-16 bg-gradient-to-br from-primary-100 to-accent/20 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
           {image ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
             <img
               src={image}
               alt={name}

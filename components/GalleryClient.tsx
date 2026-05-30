@@ -181,10 +181,9 @@ export default function GalleryClient() {
                       return (
                         <GalleryItem
                           key={item.id}
-                          {...item}
-                          index={index}
-                          brochureLink={brochureLink}
-                          category={category.category}
+                          id={item.id}
+                          src={item.src}
+                          brochureLink={brochureLink || undefined}
                         />
                       );
                     })}
