@@ -148,56 +148,62 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Founder Section */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="section-title text-center mb-4">Meet The Team</h2>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="section-title text-center mb-4">Meet The Founder</h2>
+
           <p className="section-subtitle text-center mb-12">
-            A small but mighty team of designers, strategists, and creative thinkers passionate about design excellence.
+            Passionate about creating meaningful designs that help brands communicate,
+            connect, and grow.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Priya Sharma',
-                role: 'Creative Director & Founder',
-                bio: 'Visual strategist with 8+ years of experience in brand design and creative direction. Passionate about building premium design systems.',
-                image: '/images/team/team-member-priya.svg',
-              },
-              {
-                name: 'Arjun Patel',
-                role: 'Design Lead',
-                bio: 'Specializes in UI/UX and brand identity systems. Known for meticulous attention to detail and innovative design thinking.',
-                image: '/images/team/team-member-2.svg',
-              },
-              {
-                name: 'Maya Desai',
-                role: 'Campaign Designer',
-                bio: 'Expert in social media design and campaign conceptualization. Brings creativity and strategy to every project.',
-                image: '/images/team/team-member-3.svg',
-              },
-            ].map((member) => (
-              <div
-                key={member.name}
-                className="bg-gradient-to-br from-primary-50 to-accent/10 rounded-xl p-8 border border-primary-100 text-center"
-              >
-                <div className="w-24 h-24 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-primary-50 to-accent/10 rounded-2xl p-10 md:p-12 border border-primary-100 shadow-sm">
+              
+              <div className="text-center mb-8">
+                <div className="w-40 h-40 rounded-full mx-auto mb-6 overflow-hidden">
                   <img
-                    src={member.image}
-                    alt={member.name}
+                    src="/images/team/talib-raza.jpg"
+                    alt="Talib Raza"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-primary-700 font-semibold mb-4">{member.role}</p>
-                <p className="text-gray-600">{member.bio}</p>
+
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                  Talib Raza
+                </h3>
+
+                <p className="text-primary-700 font-semibold text-lg">
+                  Founder & Creative Designer
+                </p>
               </div>
-            ))}
+              <div className="max-w-2xl mx-auto text-gray-600 leading-8 text-center space-y-5">
+                <p>
+                  With over 5 years of experience in design and creative problem-solving,
+                  projects have been delivered across branding, digital products,
+                  marketing creatives, and user experiences. Working closely with clients
+                  and leading teams has built a strong understanding of how thoughtful
+                  design helps businesses communicate clearly and establish a lasting
+                  presence.
+                </p>
+
+                <p>
+                  The focus is on creating clean, effective, and purpose-driven designs
+                  that balance aesthetics with functionality. Every project is approached
+                  with attention to detail, collaboration, and a commitment to delivering
+                  work that not only looks great but also supports meaningful business
+                  goals.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="mt-12 bg-blue-50 rounded-xl border-2 border-blue-200 p-8 text-center">
             <p className="text-lg text-blue-900">
-              We're always looking to grow our team with talented designers and strategists. If you're passionate about design and want to create work that matters, we'd love to hear from you.
+              Every project is approached with creativity, precision, and a
+              commitment to delivering meaningful results that help businesses grow
+              and connect with their audience.
             </p>
           </div>
         </div>
@@ -247,12 +253,19 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="section-title mb-4">Metrics</h2>
+            <p className="section-subtitle">
+              A snapshot of experience, impact, and the results delivered over the years.
+            </p>
+          </div>
+
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {[
-              { number: '5+', label: 'Years in Business' },
+              { number: '5+', label: 'Years of Experience' },
               { number: '150+', label: 'Projects Delivered' },
               { number: '50+', label: 'Happy Clients' },
-              { number: '95%', label: 'Satisfaction Rate' },
+              { number: '95%', label: 'Client Satisfaction' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-700 to-accent bg-clip-text text-transparent mb-2">
@@ -264,6 +277,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
 
       {/* CTA Section */}
       <CTASection

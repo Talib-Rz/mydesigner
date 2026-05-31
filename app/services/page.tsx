@@ -109,7 +109,7 @@ const services: ServiceDetailProps[] = [
       'Business collateral templates',
       'Digital and print specifications',
     ],
-    image: '/images/services/service-brand-identity.svg',
+    image: '/images/services/service-brand-identity.png',
     index: 0,
   },
   {
@@ -133,7 +133,7 @@ const services: ServiceDetailProps[] = [
       'Video storyboards and concepts',
       'Content calendar and guidelines',
     ],
-    image: '/images/services/service-campaign.svg',
+    image: '/images/services/service-campaign.png',
     index: 1,
   },
   {
@@ -157,7 +157,7 @@ const services: ServiceDetailProps[] = [
       'Web-optimized assets',
       'Print-ready files',
     ],
-    image: '/images/services/service-content.svg',
+    image: '/images/services/service-content.png',
     index: 2,
   },
   {
@@ -181,7 +181,7 @@ const services: ServiceDetailProps[] = [
       'Brand consistency guidelines updates',
       'Scalable asset libraries',
     ],
-    image: '/images/services/service-marketing.svg',
+    image: '/images/services/service-marketing.png',
     index: 3,
   },
 ];

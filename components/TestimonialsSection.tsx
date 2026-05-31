@@ -48,19 +48,19 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12 text-center">
             <div>
               <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-700 mb-2 sm:mb-3">
-                50+
+                10+
               </p>
               <p className="text-gray-600 text-sm sm:text-base md:text-lg">Successful Projects</p>
             </div>
             <div>
               <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-700 mb-2 sm:mb-3">
-                5/5
+                4.5/5
               </p>
               <p className="text-gray-600 text-sm sm:text-base md:text-lg">Average Rating</p>
             </div>
             <div>
               <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-700 mb-2 sm:mb-3">
-                98%
+                95%
               </p>
               <p className="text-gray-600 text-sm sm:text-base md:text-lg">Client Satisfaction</p>
             </div>
