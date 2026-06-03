@@ -116,7 +116,7 @@ export default function FeedbackPage() {
       />
 
       {/* Feedback Form Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="max-w-3xl mx-auto">
           <div className="bg-gradient-to-br from-primary-50 to-accent/5 rounded-2xl p-8 md:p-12 border border-primary-100 mb-8">
             <div className="flex items-start gap-4 mb-6">
@@ -313,7 +313,7 @@ export default function FeedbackPage() {
       {/* FAQ Section */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="section-title text-center mb-12">Feedback FAQ</h2>
+          <h2 className="section-title text-center mb-12">Frequently Asked Questions</h2>
 
           <div className="space-y-6">
             {[
@@ -334,14 +334,16 @@ export default function FeedbackPage() {
                 answer: 'We typically review and respond to feedback within 2-3 business days. For urgent issues, please contact us directly via WhatsApp or email.',
               },
             ].map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 border border-gray-200">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
+              <details
+                key={index}
+                className="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:border-primary-300 transition-colors"
+              >
+                <summary className="font-bold text-gray-900 flex items-center justify-between">
                   {faq.question}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
+                  <span className="text-primary-700">+</span>
+                </summary>
+                <p className="text-gray-600 mt-4">{faq.answer}</p>
+              </details>
             ))}
           </div>
         </div>

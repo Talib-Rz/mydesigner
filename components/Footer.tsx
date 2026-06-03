@@ -9,11 +9,17 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
-    { label: 'Services', href: '/services' },
+    { label: 'Solutions', href: '/solutions' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'About Us', href: '/about' },
     { label: 'Feedback', href: '/feedback' },
     { label: 'Contact', href: '/contact' },
+  ];
+
+  const segments = [
+    { label: 'Events', href: '/solutions' },
+    { label: 'Startups & Business', href: '/solutions' },
+    { label: 'Agencies', href: '/solutions' },
   ];
 
   const socialLinks = [
@@ -26,12 +32,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16">
           {/* Company Info */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div className="lg:col-span-1">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent bg-clip-text text-transparent mb-4 sm:mb-6">
               myDesigner
             </h3>
             <p className="text-gray-400 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-              Premium visual branding and campaign studio for brands and events that demand excellence.
+              We help organizations communicate professionally through branding, content and visual experiences.
             </p>
             <div className="flex gap-4 sm:gap-5">
               {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -66,14 +72,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Who We Help */}
           <div>
-            <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Services</h4>
-            <ul className="space-y-2 sm:space-y-3 text-gray-400 text-sm sm:text-base">
-              <li>Brand Identity Systems</li>
-              <li>Campaign Systems</li>
-              <li>Content & Media Design</li>
-              <li>Creative Retainer</li>
+            <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6">Who We Help</h4>
+            <ul className="space-y-2 sm:space-y-3">
+              {segments.map((segment) => (
+                <li key={segment.label}>
+                  <Link
+                    href={segment.href}
+                    className="text-gray-400 hover:text-accent transition-colors duration-200 text-sm sm:text-base"
+                  >
+                    {segment.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

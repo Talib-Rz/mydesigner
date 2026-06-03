@@ -114,9 +114,9 @@ export default function ContactPage() {
       />
 
       {/* Contact Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <div className="space-y-6 sm:space-y-8">
@@ -186,7 +186,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Response Time */}
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 sm:p-6 mt-6 sm:mt-8">
+                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mt-8">
                   <p className="text-xs sm:text-sm text-blue-900">
                     <span className="font-bold">Response Time:</span> We typically respond to all inquiries within 24 hours.
                   </p>

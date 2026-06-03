@@ -90,99 +90,75 @@ function ServiceDetail({
 const services: ServiceDetailProps[] = [
   {
     icon: '🎨',
-    title: 'Brand Identity Systems',
+    title: 'Brand Systems',
     description:
-      'Create a complete, cohesive visual identity that represents your brand\'s values and resonates with your audience. From logo design to comprehensive brand guidelines.',
+      'Build trust and credibility through a complete, cohesive visual identity. Brand Systems go beyond a logo—we create foundational visual frameworks that represent your organization and resonate with your audience across all touchpoints.',
     features: [
+      'Strategic brand positioning',
       'Logo design and variations',
-      'Color palette development',
-      'Typography selection and hierarchy',
-      'Icon systems and illustration style',
-      'Photography style guide',
-      'Brand personality and tone guidelines',
+      'Color palette and typography',
+      'Complete brand guidelines',
+      'Application templates',
+      'Consistency frameworks',
     ],
     deliverables: [
-      'Logo files (SVG, PNG, vector formats)',
-      'Complete brand guidelines document',
-      'Color specifications (RGB, HEX, CMYK)',
-      'Typography usage documentation',
-      'Business collateral templates',
+      'Logo (vector formats)',
+      'Brand guidelines document',
+      'Business collateral (letterhead, cards, envelopes)',
+      'Company profiles and presentations',
+      'Brochure templates',
       'Digital and print specifications',
     ],
     image: '/images/services/service-brand-identity.png',
     index: 0,
   },
   {
-    icon: '🚀',
-    title: 'Event & Launch Campaign Systems',
+    icon: '📹',
+    title: 'Content Systems',
     description:
-      'Structured visual strategies for product launches, events, and major announcements. We create unified campaigns that work across all touchpoints.',
+      'Drive engagement and grow your audience with strategic visual content. Content Systems include high-impact graphics, videos, and multimedia designed to capture attention, tell your story, and inspire action across all digital platforms.',
     features: [
-      'Campaign concept and strategy',
-      'Unified visual language',
-      'Multi-channel asset creation',
-      'Social media content suite',
-      'Event branding and collateral',
-      'Timeline and rollout strategy',
+      'Content strategy and planning',
+      'Multi-platform graphics design',
+      'Video editing and animation',
+      'Motion graphics creation',
+      'Reels and short-form content',
+      'Ad creative optimization',
     ],
     deliverables: [
-      'Campaign brand book',
-      'Social media asset pack',
-      'Email and web templates',
-      'Print collateral designs',
-      'Video storyboards and concepts',
-      'Content calendar and guidelines',
-    ],
-    image: '/images/services/service-campaign.png',
-    index: 1,
-  },
-  {
-    icon: '📹',
-    title: 'Content & Media Design',
-    description:
-      'High-impact graphics, videos, and multimedia content that captures attention and drives engagement. Every piece designed for maximum impact.',
-    features: [
-      'Social media graphics (all platforms)',
-      'Video editing and animation',
-      'Infographic design',
-      'Presentation design',
+      'Social media content packs (all platforms)',
+      'Reels and motion graphics',
+      'Campaign advertising creatives',
+      'YouTube thumbnails and assets',
       'Email newsletter templates',
       'Web and app graphics',
     ],
-    deliverables: [
-      'Ad-ready creative files',
-      'Video exports (multiple formats)',
-      'Social media content calendar',
-      'Motion graphics packages',
-      'Web-optimized assets',
-      'Print-ready files',
-    ],
     image: '/images/services/service-content.png',
-    index: 2,
+    index: 1,
   },
   {
-    icon: '💡',
-    title: 'Marketing Creative Retainer',
+    icon: '✨',
+    title: 'Experience Systems',
     description:
-      'Ongoing creative support for your marketing initiatives. Flexible, responsive design partnership that scales with your needs.',
+      'Create unforgettable moments through integrated visual experiences. Experience Systems unite events, conferences, and live activations with cohesive branding that makes a lasting impression on attendees.',
     features: [
-      'Monthly retainer-based model',
-      'Priority turnaround times',
-      'Unlimited revisions',
-      'Strategic creative direction',
-      'Brand consistency audits',
-      'Quarterly performance reviews',
+      'Event branding strategy',
+      'Conference visual identity',
+      'Collateral and signage design',
+      'Stage and venue graphics',
+      'Merchandise and giveaways',
+      'Print coordination',
     ],
     deliverables: [
-      'Custom monthly content packages',
-      'Priority support and revisions',
-      'Strategic campaign recommendations',
-      'Performance insights and reporting',
-      'Brand consistency guidelines updates',
-      'Scalable asset libraries',
+      'Event brand guidelines',
+      'Stage backdrops and signage',
+      'Certificates and awards design',
+      'Standees and banners',
+      'Merchandise designs',
+      'Venue graphics and wayfinding',
     ],
-    image: '/images/services/service-marketing.png',
-    index: 3,
+    image: '/images/services/service-campaign.png',
+    index: 2,
   },
 ];
 
@@ -192,7 +168,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <Hero
         title="Our Services"
-        subtitle="Four core service pillars designed to meet every aspect of your visual branding needs."
+        subtitle="Three core systems designed to build trust, drive engagement, and create memorable experiences for your brand."
         primaryCta={{ label: 'Get In Touch', href: '/contact' }}
         showAnimation={true}
       />
@@ -201,6 +177,106 @@ export default function ServicesPage() {
       {services.map((service) => (
         <ServiceDetail key={service.title} {...service} />
       ))}
+
+      {/* Production & Execution Support Section */}
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <h2 className="section-title">Production & Execution Support</h2>
+              <p className="section-subtitle">
+                Beyond design—we handle the execution details to bring your vision to life
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">What We Handle</h3>
+              {[
+                {
+                  icon: '📄',
+                  title: 'Print Collaterals',
+                  description: 'Business cards, letterheads, envelopes, folders, and all printed materials optimized for production.',
+                },
+                {
+                  icon: '🏷️',
+                  title: 'Signage & Banners',
+                  description: 'Event signage, wayfinding graphics, banners, and large-format designs production-ready.',
+                },
+                {
+                  icon: '🎪',
+                  title: 'Event Branding Production',
+                  description: 'Stage backdrops, certificates, standees, and all event-specific branding materials.',
+                },
+                {
+                  icon: '🔧',
+                  title: 'Fabrication Coordination',
+                  description: 'End-to-end coordination with printers, fabricators, and vendors. We ensure quality at every step.',
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-4 p-4 rounded-lg bg-gray-50 border border-gray-200"
+                >
+                  <div className="text-3xl flex-shrink-0">{item.icon}</div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">{item.title}</h4>
+                    <p className="text-sm text-gray-600">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-primary-50 to-accent/10 rounded-2xl p-10 border border-primary-100 flex flex-col justify-center"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why This Matters</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Design is only half the battle. Flawless execution transforms good designs into great results. We bridge the gap between concept and reality, ensuring your vision is perfectly realized in print and production.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-accent font-bold text-lg mt-1">✓</span>
+                  <p className="text-gray-700">Quality assurance at every stage</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-accent font-bold text-lg mt-1">✓</span>
+                  <p className="text-gray-700">Vendor relationships we've built</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-accent font-bold text-lg mt-1">✓</span>
+                  <p className="text-gray-700">Production specifications expertise</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-accent font-bold text-lg mt-1">✓</span>
+                  <p className="text-gray-700">One point of accountability</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* Why Choose Us Section */}
       <section className="section-padding bg-white">
@@ -244,8 +320,11 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <CTASection
-        heading="Ready to Get Started?"
-        subheading="Let's discuss which services are right for your project."
+        heading="Ready to Build Your Systems?"
+        subheading="Let's discuss which outcomes matter most for your organization."
+        description="Whether you need Brand, Content, or Experience Systems—or a combination—we're ready to help you create visual work that drives real results."
+        buttonText="Schedule a Consultation"
+        buttonHref="/contact"
       />
     </>
   );

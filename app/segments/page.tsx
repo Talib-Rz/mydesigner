@@ -1,191 +1,125 @@
-import type { Metadata } from 'next';
-import Hero from '@/components/Hero';
-import SegmentCard from '@/components/SegmentCard';
-import CTASection from '@/components/CTASection';
-import { segments } from '@/lib/data';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Market Segments - myDesigner',
-  description: 'Explore the diverse range of B2C and B2B segments we serve with specialized visual branding and campaign solutions.',
-  keywords: 'market segments, B2C, B2B, branding solutions',
-};
+import { motion } from 'framer-motion';
+import Hero from '@/components/Hero';
+import CTASection from '@/components/CTASection';
+import { simplifiedSegments, notForSegments } from '@/lib/data';
 
 export default function SegmentsPage() {
-  const b2cSegments = segments.filter((s) => s.type === 'B2C');
-  const b2bSegments = segments.filter((s) => s.type === 'B2B');
-
   return (
     <>
       {/* Hero Section */}
       <Hero
-        title="Market Segments"
-        subtitle="We serve a diverse range of clients across B2C and B2B sectors, each with unique visual branding needs."
+        title="Who We Work With"
+        subtitle="We specialize in three core segments, each with unique visual branding and communication needs."
         showAnimation={true}
       />
 
-      {/* B2C Segments Section */}
+      {/* Segments Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <h2 className="section-title">B2C: Direct to Consumer</h2>
-            <p className="section-subtitle">
-              Consumer-focused businesses and events that need bold, modern visual identities to engage their audiences.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {simplifiedSegments.map((segment, index) => (
+              <motion.div
+                key={segment.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                whileHover={{ y: -8 }}
+                className="p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 card-shadow h-full flex flex-col"
+              >
+                <div className="text-6xl mb-4">{segment.icon}</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">{segment.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-6 flex-1">{segment.description}</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {b2cSegments.map((segment, index) => (
-              <SegmentCard key={segment.id} {...segment} index={index} />
-            ))}
-          </div>
-
-          <div className="mt-12 bg-blue-50 rounded-xl border-2 border-blue-200 p-8">
-            <h3 className="text-xl font-bold text-blue-900 mb-3">Why B2C Needs Strong Branding</h3>
-            <p className="text-blue-800 leading-relaxed">
-              Direct consumer engagement requires visual identities that stand out in crowded markets. Whether it's a college fest or an online course platform, your brand needs to capture attention, build trust, and inspire action. We create visual systems that resonate with your target audience and drive engagement.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* B2B Segments Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <h2 className="section-title">B2B: Business to Business</h2>
-            <p className="section-subtitle">
-              Agencies, organizations, and companies that need reliable creative partners for client and internal projects.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {b2bSegments.map((segment, index) => (
-              <SegmentCard key={segment.id} {...segment} index={index + b2cSegments.length} />
-            ))}
-          </div>
-
-          <div className="mt-12 bg-purple-50 rounded-xl border-2 border-purple-200 p-8">
-            <h3 className="text-xl font-bold text-purple-900 mb-3">B2B Creative Partnerships</h3>
-            <p className="text-purple-800 leading-relaxed">
-              Agencies, event organizers, and marketing companies need design partners they can trust. Our retainer model and project-based services provide the flexibility and reliability your organization needs. From campaign execution to full brand systems, we deliver consistently excellent work.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Segment Comparison Table */}
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="section-title mb-12 text-center">Our Segment Expertise</h2>
-
-          {/* Desktop Table */}
-          <div className="hidden md:block overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-4 sm:px-6 font-bold text-gray-900 text-sm sm:text-base">Segment</th>
-                  <th className="text-left py-4 px-4 sm:px-6 font-bold text-gray-900 text-sm sm:text-base">Typical Projects</th>
-                  <th className="text-left py-4 px-4 sm:px-6 font-bold text-gray-900 text-sm sm:text-base">Our Expertise</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    segment: 'College Events',
-                    projects: 'Fests, Conferences, Workshops',
-                    expertise: 'Student-centric design, viral campaigns, event theming',
-                  },
-                  {
-                    segment: 'Startups',
-                    projects: 'Brand identity, product launches, pitch decks',
-                    expertise: 'Modern design systems, scalable branding, growth marketing',
-                  },
-                  {
-                    segment: 'EdTech',
-                    projects: 'Platform design, course branding, content creation',
-                    expertise: 'Educational aesthetics, user engagement, video production',
-                  },
-                  {
-                    segment: 'Real Estate',
-                    projects: 'Project launches, luxury branding, marketing collateral',
-                    expertise: 'Premium positioning, architectural visualization, luxury design',
-                  },
-                  {
-                    segment: 'Marketing Agencies',
-                    projects: 'Client campaigns, retainer work, campaign conceptualization',
-                    expertise: 'Fast turnarounds, diverse styles, scalable solutions',
-                  },
-                  {
-                    segment: 'NGOs',
-                    projects: 'Brand identity, campaign design, donor materials',
-                    expertise: 'Impact-focused design, limited budgets, mission-driven work',
-                  },
-                ].map((row) => (
-                  <tr key={row.segment} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="py-4 px-4 sm:px-6 font-semibold text-gray-900 text-sm sm:text-base">{row.segment}</td>
-                    <td className="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">{row.projects}</td>
-                    <td className="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">{row.expertise}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile Cards */}
-          <div className="md:hidden space-y-4">
-            {[
-              {
-                segment: 'College Events',
-                projects: 'Fests, Conferences, Workshops',
-                expertise: 'Student-centric design, viral campaigns, event theming',
-              },
-              {
-                segment: 'Startups',
-                projects: 'Brand identity, product launches, pitch decks',
-                expertise: 'Modern design systems, scalable branding, growth marketing',
-              },
-              {
-                segment: 'EdTech',
-                projects: 'Platform design, course branding, content creation',
-                expertise: 'Educational aesthetics, user engagement, video production',
-              },
-              {
-                segment: 'Real Estate',
-                projects: 'Project launches, luxury branding, marketing collateral',
-                expertise: 'Premium positioning, architectural visualization, luxury design',
-              },
-              {
-                segment: 'Marketing Agencies',
-                projects: 'Client campaigns, retainer work, campaign conceptualization',
-                expertise: 'Fast turnarounds, diverse styles, scalable solutions',
-              },
-              {
-                segment: 'NGOs',
-                projects: 'Brand identity, campaign design, donor materials',
-                expertise: 'Impact-focused design, limited budgets, mission-driven work',
-              },
-            ].map((row) => (
-              <div key={row.segment} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <h3 className="font-bold text-gray-900 mb-2 text-base">{row.segment}</h3>
-                <div className="space-y-2 text-sm text-gray-700">
-                  <div>
-                    <span className="font-semibold text-gray-900">Projects:</span> {row.projects}
-                  </div>
-                  <div>
-                    <span className="font-semibold text-gray-900">Expertise:</span> {row.expertise}
+                {/* Examples */}
+                <div className="mb-6 pb-6 border-b border-gray-200">
+                  <h4 className="text-sm font-bold text-gray-700 uppercase mb-3 tracking-wide">Examples</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {segment.examples.map((example) => (
+                      <span
+                        key={example}
+                        className="text-xs px-3 py-1 bg-primary-100 text-primary-700 rounded-full font-medium"
+                      >
+                        {example}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
+
+                {/* Needs */}
+                <div>
+                  <h4 className="text-sm font-bold text-gray-700 uppercase mb-3 tracking-wide">Your Needs</h4>
+                  <ul className="space-y-2">
+                    {segment.needs.map((need) => (
+                      <li key={need} className="flex items-start gap-2 text-sm text-gray-700">
+                        <span className="text-accent font-bold mt-0.5">✓</span>
+                        <span>{need}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Who We Are Not For Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center"
+          >
+            <h2 className="section-title mb-4">Who We Are Not For</h2>
+            <p className="section-subtitle">
+              We want to be transparent about our focus and expertise. Here's what we don't do.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {notForSegments.map((item, index) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="p-8 bg-white rounded-2xl border-2 border-red-200 text-center"
+              >
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-12 p-8 bg-white rounded-2xl border-2 border-primary-200 text-center"
+          >
+            <p className="text-lg text-gray-800 leading-relaxed">
+              <span className="font-bold text-primary-700">We believe in saying no to projects that aren't the right fit.</span> This helps us deliver exceptional work for clients we can truly help. If you're in one of our three segments and need a strategic creative partner, let's talk.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <CTASection
-        heading="Tell Us About Your Project"
-        subheading="Whether B2C or B2B, we have the expertise for your segment."
-        description="Schedule a consultation to discuss how we can help position your brand or organization for success."
+        heading="Is Your Project a Good Fit?"
+        subheading="If you're in Events, Startups & Businesses, or Agencies, we'd love to chat."
+        description="Let's discuss your project, your goals, and how we can create visual systems that drive real results."
+        buttonText="Start a Conversation"
+        buttonHref="/contact"
       />
     </>
   );

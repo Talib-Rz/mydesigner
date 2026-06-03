@@ -2,6 +2,7 @@ export interface CaseStudy {
   id: number;
   title: string;
   category: string;
+  segment: 'Event' | 'Startup & Business' | 'Agency';
   description: string;
   results: string[];
   image: string;
@@ -32,11 +33,54 @@ export interface Testimonial {
   rating: number;
 }
 
+export interface HomepageSegment {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface DeliverablePillar {
+  id: number;
+  category: string;
+  icon: string;
+  description: string;
+  items: string[];
+}
+
+export interface WhyChooseUs {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface FAQ {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+export interface ProblemPoint {
+  id: number;
+  text: string;
+}
+
+export interface SimplifiedSegment {
+  id: number;
+  title: string;
+  icon: string;
+  examples: string[];
+  needs: string[];
+  description: string;
+}
+
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
     title: 'TechCon 2024 Campaign',
     category: 'Event Identity',
+    segment: 'Event',
     description: 'Complete visual identity system for India\'s largest tech conference with 5000+ attendees.',
     results: ['200% social media engagement increase', 'Unified visual presence across 8 platforms', 'Premium brand perception'],
     image: '/images/case-studies/case-study-1.png',
@@ -45,6 +89,7 @@ export const caseStudies: CaseStudy[] = [
     id: 2,
     title: 'EduStartup Rebranding',
     category: 'Brand Identity',
+    segment: 'Startup & Business',
     description: 'Complete rebrand for an EdTech platform targeting college students with modern, AI-forward visual language.',
     results: ['40% increase in user retention', 'Enhanced brand recognition', 'Improved conversion rates by 35%'],
     image: '/images/case-studies/case-study-2.png',
@@ -53,6 +98,7 @@ export const caseStudies: CaseStudy[] = [
     id: 3,
     title: 'Fest Media Campaign',
     category: 'Content & Campaign',
+    segment: 'Event',
     description: 'Designed comprehensive video and graphic content suite for annual college festival.',
     results: ['1.2M+ video views', 'Peak engagement on all channels', 'Record ticket sales'],
     image: '/images/case-studies/case-study-3.png',
@@ -61,6 +107,7 @@ export const caseStudies: CaseStudy[] = [
     id: 4,
     title: 'Real Estate Launch Campaign',
     category: 'Marketing Creative',
+    segment: 'Agency',
     description: 'Premium campaign design for luxury residential project targeting high-net-worth individuals.',
     results: ['Pre-launch interest 3x target', '85% unit sold in first month', 'Featured in 5 leading publications'],
     image: '/images/case-studies/case-study-4.png',
@@ -213,5 +260,216 @@ export const testimonials: Testimonial[] = [
     testimonial: 'The team at myDesigner consistently delivered exceptional creative solutions that elevated our brand presence. Their designs were modern, impactful, and perfectly aligned with our goals. I would confidently recommend them to anyone looking for high-quality design and branding services.',
     image: '/images/testimonials/testimonial-3.png',
     rating: 5,
+  },
+];
+
+// Home Page Specific Data
+export const homepageSegments: HomepageSegment[] = [
+  {
+    id: 1,
+    title: 'Events',
+    description: 'Conferences, workshops, summits, college fests, alumni meets and corporate events.',
+    icon: '🎉',
+  },
+  {
+    id: 2,
+    title: 'Startups & Businesses',
+    description: 'Branding, presentations, marketing assets, launch campaigns and growth-focused visual systems.',
+    icon: '🚀',
+  },
+  {
+    id: 3,
+    title: 'Agencies',
+    description: 'White-label design support, campaign creatives and client delivery support.',
+    icon: '🤝',
+  },
+];
+
+export const problemPoints: ProblemPoint[] = [
+  {
+    id: 1,
+    text: 'Event branding feels inconsistent',
+  },
+  {
+    id: 2,
+    text: 'Marketing creatives look generic',
+  },
+  {
+    id: 3,
+    text: 'Different vendors create disconnected experiences',
+  },
+  {
+    id: 4,
+    text: 'Teams struggle to maintain visual consistency',
+  },
+  {
+    id: 5,
+    text: 'AI tools generate visuals but not complete systems',
+  },
+  {
+    id: 6,
+    text: 'Campaigns fail to stand out in crowded markets',
+  },
+];
+
+export const deliverablePillars: DeliverablePillar[] = [
+  {
+    id: 1,
+    category: 'Brand',
+    icon: '🎨',
+    description: 'Build a professional visual identity that people recognize and remember. From logos to comprehensive brand systems that maintain consistency across all touchpoints.',
+    items: ['Logos', 'Identity Systems', 'Brand Guidelines', 'Presentations', 'Brochures'],
+  },
+  {
+    id: 2,
+    category: 'Content',
+    icon: '📹',
+    description: 'Create visually consistent content that engages your audience. We design everything from social media creatives to motion graphics that drive engagement and conversions.',
+    items: ['Social Media Creatives', 'Reels', 'Motion Graphics', 'Campaign Creatives', 'YouTube Assets'],
+  },
+  {
+    id: 3,
+    category: 'Experiences',
+    icon: '✨',
+    description: 'Bring your brand to life through immersive visual experiences. From events to merchandise, we create tangible brand touchpoints that leave lasting impressions.',
+    items: ['Event Branding', 'Stage Backdrops', 'Certificates', 'Standees', 'Merchandise', 'Venue Graphics'],
+  },
+];
+
+export const whyChooseUs: WhyChooseUs[] = [
+  {
+    id: 1,
+    title: 'Strategic Thinking',
+    description: 'Every design decision is backed by strategy and purpose, not just aesthetics.',
+    icon: '🎯',
+  },
+  {
+    id: 2,
+    title: 'Consistent Identity',
+    description: 'We create cohesive visual systems that work across all touchpoints and platforms.',
+    icon: '✓',
+  },
+  {
+    id: 3,
+    title: 'End-to-End Support',
+    description: 'From concept to delivery, we handle everything you need for a complete visual solution.',
+    icon: '🔄',
+  },
+];
+
+export const homeProcessSteps = [
+  {
+    number: '01',
+    title: 'Discover',
+    description: 'Understanding your brand, goals, and audience through detailed consultation.',
+  },
+  {
+    number: '02',
+    title: 'Design',
+    description: 'Creating strategic design directions and visual concepts.',
+  },
+  {
+    number: '03',
+    title: 'Execute',
+    description: 'Developing comprehensive designs with iterative refinement.',
+  },
+  {
+    number: '04',
+    title: 'Refine',
+    description: 'Building complete systems with guidelines for consistency.',
+  },
+  {
+    number: '05',
+    title: 'Deliver',
+    description: 'Delivering final assets with documentation and support.',
+  },
+];
+
+export const faqs: FAQ[] = [
+  {
+    id: 1,
+    question: 'What types of events do you work with?',
+    answer: 'We work with all types of events including conferences, workshops, college fests, alumni meets, hackathons, and corporate events. We specialize in creating complete visual identity systems that work across all event touchpoints.',
+  },
+  {
+    id: 2,
+    question: 'How long does a typical project take?',
+    answer: 'Project timelines vary based on scope and complexity. Most branding projects take 2-4 weeks, while event campaigns can be completed in 1-2 weeks. We\'ll provide a detailed timeline during the discovery phase.',
+  },
+  {
+    id: 3,
+    question: 'Do you offer retainer services?',
+    answer: 'Yes, we offer flexible retainer packages for ongoing creative support. This is ideal for agencies, startups, and organizations that need consistent design support throughout the year.',
+  },
+  {
+    id: 4,
+    question: 'What\'s included in a visual identity system?',
+    answer: 'Our visual identity systems include logo design, color palettes, typography guidelines, brand applications, templates, and a comprehensive brand guidelines document to ensure consistency across all materials.',
+  },
+  {
+    id: 5,
+    question: 'Can you work with our existing brand guidelines?',
+    answer: 'Absolutely! We can work within your existing brand guidelines or help you evolve and refine them. We\'re flexible and collaborative in our approach.',
+  },
+  {
+    id: 6,
+    question: 'Do you provide source files and ownership?',
+    answer: 'Yes, all deliverables come with source files, and you retain complete ownership of all designs. We provide everything you need to maintain and evolve your visual systems independently.',
+  },
+];
+
+// Simplified Segments for Segments Page
+export const simplifiedSegments: SimplifiedSegment[] = [
+  {
+    id: 1,
+    title: 'Events',
+    icon: '🎪',
+    examples: ['Conferences', 'College Fests', 'Workshops', 'Hackathons', 'Alumni Meets', 'Corporate Events'],
+    needs: ['Branding', 'Promotion', 'Certificates', 'Venue Graphics', 'Event Experience'],
+    description: 'From intimate workshops to large-scale conferences, we create visual experiences that make events memorable. Our event branding systems ensure consistency across all touchpoints while creating the excitement your attendees expect.',
+  },
+  {
+    id: 2,
+    title: 'Startups & Businesses',
+    icon: '🚀',
+    examples: ['Startups', 'EdTech', 'Consulting Firms', 'SaaS Companies', 'Growing Businesses'],
+    needs: ['Brand Identity', 'Marketing Assets', 'Presentations', 'Launch Campaigns'],
+    description: 'Whether you\'re pre-launch or scaling, we create visual systems that position you for success. From founding identity to growth marketing, we help you communicate your value clearly and professionally.',
+  },
+  {
+    id: 3,
+    title: 'Agencies',
+    icon: '🤝',
+    examples: ['Marketing Agencies', 'Advertising Agencies', 'PR Agencies', 'Creative Studios'],
+    needs: ['White-label Design Support', 'Campaign Assets', 'Client Deliverables'],
+    description: 'We\'re your trusted creative partner. Whether you need white-label design support for client projects or campaign-specific creatives, we deliver consistently excellent work that reflects well on your agency.',
+  },
+];
+
+export interface NotForSegment {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export const notForSegments: NotForSegment[] = [
+  {
+    id: 1,
+    title: 'One-off Poster Design Only',
+    description: 'Businesses looking for quick, isolated design pieces without any brand consistency or strategic thinking.',
+    icon: '❌',
+  },
+  {
+    id: 2,
+    title: 'Quick Template-Based Work',
+    description: 'Projects that need rapid turnarounds with generic templates or minimal customization.',
+    icon: '❌',
+  },
+  {
+    id: 3,
+    title: 'Projects Without Clear Goals',
+    description: 'Work without defined branding or communication objectives where impact is uncertain.',
+    icon: '❌',
   },
 ];

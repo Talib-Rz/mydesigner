@@ -14,6 +14,7 @@ interface CaseStudyDetailProps {
   id: number;
   title: string;
   category: string;
+  segment?: 'Event' | 'Startup & Business' | 'Agency';
   description: string;
   results: string[];
   challenge: string;
@@ -26,6 +27,7 @@ const caseStudyDetails: CaseStudyDetailProps[] = [
     id: 1,
     title: 'TechCon 2024 Campaign',
     category: 'Event Identity',
+    segment: 'Event',
     description: 'Complete visual identity system for India\'s largest tech conference with 5000+ attendees.',
     results: ['200% social media engagement increase', 'Unified visual presence across 8 platforms', 'Premium brand perception'],
     challenge: 'Create a distinctive visual identity for a major tech conference that appeals to both industry professionals and college students in a crowded market.',
@@ -36,6 +38,7 @@ const caseStudyDetails: CaseStudyDetailProps[] = [
     id: 2,
     title: 'EduStartup Rebranding',
     category: 'Brand Identity',
+    segment: 'Startup & Business',
     description: 'Complete rebrand for an EdTech platform targeting college students with modern, AI-forward visual language.',
     results: ['40% increase in user retention', 'Enhanced brand recognition', 'Improved conversion rates by 35%'],
     challenge: 'The EdTech platform needed a rebrand to better communicate its AI-powered features while appealing to a younger, tech-savvy audience.',
@@ -46,6 +49,7 @@ const caseStudyDetails: CaseStudyDetailProps[] = [
     id: 3,
     title: 'Fest Media Campaign',
     category: 'Content & Campaign',
+    segment: 'Event',
     description: 'Designed comprehensive video and graphic content suite for annual college festival.',
     results: ['1.2M+ video views', 'Peak engagement on all channels', 'Record ticket sales'],
     challenge: 'Create a comprehensive media campaign that generates excitement and drives ticket sales for an annual college festival in a tight timeline.',
@@ -56,6 +60,7 @@ const caseStudyDetails: CaseStudyDetailProps[] = [
     id: 4,
     title: 'Real Estate Launch Campaign',
     category: 'Marketing Creative',
+    segment: 'Agency',
     description: 'Premium campaign design for luxury residential project targeting high-net-worth individuals.',
     results: ['Pre-launch interest 3x target', '85% unit sold in first month', 'Featured in 5 leading publications'],
     challenge: 'Launch a luxury residential project with premium positioning to high-net-worth individuals through coordinated visual campaigns.',
@@ -70,16 +75,30 @@ export default function CaseStudiesPage() {
       {/* Hero Section */}
       <Hero
         title="Case Studies"
-        subtitle="Real projects, real results. Explore how we've helped brands and events succeed through strategic visual design."
+        subtitle="We solve communication problems with measurable business outcomes."
         showAnimation={true}
       />
 
+      {/* Intro Section */}
+      <section className="section-padding bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">We don't just create visuals. We solve communication problems.</h2>
+          <p className="text-gray-600">
+            Each project is scoped around a clear business objective from increasing registrations and engagement to improving sponsor visibility and conversion rates. Below you'll find concise summaries focused on Challenge → Solution → Impact → Results.
+          </p>
+        </div>
+      </section>
       {/* Case Studies Grid */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="mb-12">
+            <h2 className="section-title mb-4">All Case Studies</h2>
+            <p className="section-subtitle max-w-3xl">Browse our complete portfolio of projects across events, startups, and agencies.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {caseStudies.map((study, index) => (
-              <CaseStudyCard key={study.id} {...study} index={index} />
+              <CaseStudyCard key={study.id} {...study} index={index} variant="small" />
             ))}
           </div>
         </div>
@@ -108,26 +127,29 @@ export default function CaseStudiesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 my-8 sm:my-12">
               {/* Challenge */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">The Challenge</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Challenge</h3>
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{study.challenge}</p>
               </div>
 
               {/* Solution */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Our Solution</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Solution</h3>
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{study.solution}</p>
               </div>
             </div>
-
             {/* Impact */}
-            <div className="bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 border border-primary-100">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">The Impact</h3>
-              <p className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">{study.impact}</p>
+            <div className="bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 border border-primary-100">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Impact</h3>
+              <p className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">{study.impact}</p>
+            </div>
 
+            {/* Results */}
+            <div className="mb-8">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Results</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                 {study.results.map((result, idx) => (
                   <div key={idx} className="bg-white rounded-lg p-4 border border-primary-100">
-                    <p className="text-xs sm:text-sm text-gray-600 mb-2">Result {idx + 1}</p>
+                    <p className="text-sm text-gray-600 mb-2">Outcome {idx + 1}</p>
                     <p className="font-semibold text-gray-900">{result}</p>
                   </div>
                 ))}
@@ -162,7 +184,7 @@ export default function CaseStudiesPage() {
 
       {/* CTA Section */}
       <CTASection
-        heading="Your Project Could Be Next"
+        heading="Yours Could Be Next"
         subheading="Let's create something equally impressive together."
         description="Schedule a consultation to discuss your branding or campaign goals."
       />
