@@ -271,10 +271,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {[
-              { number: '5+', label: 'Years of Experience' },
-              { number: '150+', label: 'Projects Delivered' },
-              { number: '50+', label: 'Happy Clients' },
-              { number: '95%', label: 'Client Satisfaction' },
+              { number: '3', label: 'Segments We Specialize In' },
+              { number: '10+', label: 'Projects Delivered' },
+              { number: '50+', label: 'Creative Assets Produced' },
+              { number: '8+', label: 'Organizations Trusted Us' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-700 to-accent bg-clip-text text-transparent mb-2">

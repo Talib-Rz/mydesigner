@@ -5,8 +5,9 @@ import Hero from '../../components/Hero';
 import CTASection from '../../components/CTASection';
 import ProcessSection from '../../components/ProcessSection';
 import CaseStudyCard from '../../components/CaseStudyCard';
+import PartnerCard from '../../components/PartnerCard';
 import Link from 'next/link';
-import { caseStudies, homeProcessSteps, deliverablePillars, whyChooseUs } from '../../lib/data';
+import { caseStudies, homeProcessSteps, deliverablePillars, whyChooseUs, executionPartners } from '../../lib/data';
 
 function Section({
   children,
@@ -365,6 +366,69 @@ export default function SolutionsPage() {
 
       {/* Process Section */}
       <ProcessSection steps={homeProcessSteps} />
+
+      {/* Our Printing & Execution Partners Section */}
+      <Section className="bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="section-title mb-4">Our Printing & Execution Partners</h2>
+          <p className="section-subtitle max-w-3xl">
+            Great design deserves great execution. While myDesigner focuses on branding, content, campaigns and visual experiences, we collaborate with trusted local partners who help bring these designs into the real world.
+          </p>
+        </motion.div>
+
+        <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto leading-relaxed">
+          Whether it's event branding, brochures, standees, signage, certificates or large-format installations, our execution partners help ensure that designs are produced professionally and delivered with care.
+        </p>
+
+        {/* Partner Grid */}
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
+          {executionPartners.map((partner, idx) => (
+            <div key={partner.id} className="w-full md:w-1/2 lg:w-1/4 flex justify-center">
+              <PartnerCard partner={partner} index={idx} />
+            </div>
+          ))}
+        </div>
+
+        {/* Expanding Across More Cities Box */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl p-8 md:p-12 border border-primary-200 mb-12"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Expanding Across More Cities</h3>
+          <p className="text-gray-700 leading-relaxed">
+            We are actively building a network of trusted printing, fabrication and execution partners across different cities. This helps us connect clients with reliable local support while maintaining consistent quality standards.
+          </p>
+        </motion.div>
+
+        {/* Become a Partner CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Want to Become an Execution Partner?</h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            We're always looking to collaborate with reliable printing, fabrication, signage and production partners who share our commitment to quality and professionalism.
+          </p>
+          <Link
+            href="/partners"
+            className="inline-block px-8 py-4 bg-primary-700 hover:bg-primary-800 text-white font-semibold rounded-lg transition-colors text-lg"
+          >
+            Apply as a Partner
+          </Link>
+        </motion.div>
+      </Section>
 
       {/* FAQ */}
       <section className="section-padding bg-gray-50">

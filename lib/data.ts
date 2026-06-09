@@ -473,3 +473,23 @@ export const notForSegments: NotForSegment[] = [
     icon: '❌',
   },
 ];
+
+export interface Partner {
+  id: number;
+  name: string;
+  location: string;
+  description: string;
+  website?: string;
+  logo?: string;
+}
+
+export const executionPartners: Partner[] = [
+  {
+    id: 1,
+    name: 'ArtPlus',
+    location: 'Muzaffarpur, Bihar',
+    description: 'Trusted printing and fabrication partner supporting businesses, institutions and events with high-quality production solutions.',
+    website: 'https://www.artplus.in',
+    logo: '/images/partners/artplus-logo.png',
+  },
+];
