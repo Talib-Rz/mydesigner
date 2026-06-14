@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import { HiMail, HiPhone } from 'react-icons/hi';
 import { FaMapMarker, FaWhatsapp } from 'react-icons/fa';
+// Import analytics tracking functions for contact interactions
+import { trackPhoneCallClick, trackWhatsAppClick, trackContactFormSubmission } from '@/lib/analytics';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -81,6 +83,16 @@ export default function ContactPage() {
         throw new Error(data.error || 'Failed to send email');
       }
 
+      // Track successful form submission in Google Analytics
+      // Sends form data (non-sensitive), project type, and user interaction details
+      trackContactFormSubmission(
+        {
+          name: formData.name,
+          company: formData.company,
+        },
+        formData.projectType
+      );
+
       setSubmitted(true);
       setFormData({
         name: '',
@@ -144,8 +156,10 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-base sm:text-lg font-bold text-gray-900">Phone</h3>
                   </div>
+                  {/* Phone link with analytics tracking */}
                   <a
                     href="tel:+918252348421"
+                    onClick={() => trackPhoneCallClick('+918252348421', 'contact_page')}
                     className="text-gray-600 hover:text-primary-700 transition-colors text-sm sm:text-base"
                   >
                     +91 82523 48421
@@ -160,8 +174,10 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-base sm:text-lg font-bold text-gray-900">WhatsApp</h3>
                   </div>
+                  {/* WhatsApp link with analytics tracking */}
                   <a
                     href="https://wa.me/918252348421"
+                    onClick={() => trackWhatsAppClick('918252348421', 'contact_page')}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-green-700 transition-colors text-sm sm:text-base"

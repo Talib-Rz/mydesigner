@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+// Import analytics tracking function for gallery interactions
+import { trackGalleryClick } from '@/lib/analytics';
 
 interface BrochureLink {
   fileName: string;
@@ -15,6 +17,26 @@ interface GalleryItemProps {
 }
 
 export default function GalleryItem({ id, src, brochureLink }: GalleryItemProps) {
+  /**
+   * Handle gallery item click/view
+   * Tracks when users interact with gallery items for engagement analytics
+   */
+  const handleGalleryClick = () => {
+    // Extract the category and name from the src path for better tracking
+    // Example: /gallery-items/Brochure Designs/Landscape/item.jpg
+    const pathParts = src.split('/');
+    const category = pathParts[2] || 'gallery'; // Category folder name
+    const fileName = pathParts[pathParts.length - 1] || 'unknown';
+    
+    // Track the gallery item click event
+    // Parameters: item name, category, item ID
+    trackGalleryClick(
+      brochureLink?.displayName || fileName,
+      category,
+      id
+    );
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.98 }}
@@ -25,7 +47,14 @@ export default function GalleryItem({ id, src, brochureLink }: GalleryItemProps)
     >
       {/* Brochure items: clickable image with hover overlay + blur */}
       {brochureLink ? (
-        <a href={brochureLink.url} target="_blank" rel="noreferrer" className="block relative">
+        // Link with analytics tracking for brochure downloads
+        <a 
+          href={brochureLink.url} 
+          onClick={handleGalleryClick}
+          target="_blank" 
+          rel="noreferrer" 
+          className="block relative"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
@@ -39,9 +68,11 @@ export default function GalleryItem({ id, src, brochureLink }: GalleryItemProps)
           </div>
         </a>
       ) : (
-        // non-brochure image
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" className="w-full h-auto object-contain" loading="lazy" />
+        // Non-brochure image with click tracking
+        <div onClick={handleGalleryClick} className="block relative cursor-pointer">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt="" className="w-full h-auto object-contain" loading="lazy" />
+        </div>
       )}
     </motion.div>
   );

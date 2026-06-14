@@ -3,6 +3,8 @@ import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+// Import Google Analytics component to track user interactions and page views
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -31,6 +33,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics 4 - Initializes GA tracking globally */}
+        <GoogleAnalytics />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="preload"
