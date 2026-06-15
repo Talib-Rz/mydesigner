@@ -164,7 +164,6 @@ export default function Home() {
               >
                 <div className="text-5xl mb-4">{pillar.icon}</div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">{pillar.category}</h3>
-                <p className="text-gray-600 text-sm mb-6 flex-1 leading-relaxed">{pillar.description}</p>
                 
                 <div className="flex flex-wrap justify-center gap-2 mt-auto">
                   {pillar.items.map((item) => (
@@ -198,7 +197,7 @@ export default function Home() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {caseStudies.slice(0, 3).map((study, index) => (
+          {[...caseStudies].reverse().slice(0, 3).map((study, index) => (
             <CaseStudyCard key={study.id} {...study} index={index} variant="small" />
           ))}
         </div>

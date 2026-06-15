@@ -10,65 +10,6 @@ export const metadata: Metadata = {
   keywords: 'case studies, portfolio, branding projects, campaign work',
 };
 
-interface CaseStudyDetailProps {
-  id: number;
-  title: string;
-  category: string;
-  segment?: 'Event' | 'Startup & Business' | 'Agency';
-  description: string;
-  results: string[];
-  challenge: string;
-  solution: string;
-  impact: string;
-}
-
-const caseStudyDetails: CaseStudyDetailProps[] = [
-  {
-    id: 1,
-    title: 'TechCon 2024 Campaign',
-    category: 'Event Identity',
-    segment: 'Event',
-    description: 'Complete visual identity system for India\'s largest tech conference with 5000+ attendees.',
-    results: ['200% social media engagement increase', 'Unified visual presence across 8 platforms', 'Premium brand perception'],
-    challenge: 'Create a distinctive visual identity for a major tech conference that appeals to both industry professionals and college students in a crowded market.',
-    solution: 'We developed a modern, tech-forward visual system with a bold color palette and geometric iconography. The design system included social media templates, collateral, merchandise design, and event signage.',
-    impact: 'The campaign generated significant buzz, with organic social media reach exceeding expectations by 3x. The visual system was so well-received that it became the benchmark for future events.',
-  },
-  {
-    id: 2,
-    title: 'EduStartup Rebranding',
-    category: 'Brand Identity',
-    segment: 'Startup & Business',
-    description: 'Complete rebrand for an EdTech platform targeting college students with modern, AI-forward visual language.',
-    results: ['40% increase in user retention', 'Enhanced brand recognition', 'Improved conversion rates by 35%'],
-    challenge: 'The EdTech platform needed a rebrand to better communicate its AI-powered features while appealing to a younger, tech-savvy audience.',
-    solution: 'We created a fresh, modern visual identity incorporating gradient elements and clean typography. The design emphasized the AI aspect through subtle motion and futuristic aesthetics, while maintaining approachability for students.',
-    impact: 'Post-rebrand, the platform saw improved user engagement, higher conversion rates on sign-ups, and better brand recall among the target demographic.',
-  },
-  {
-    id: 3,
-    title: 'Fest Media Campaign',
-    category: 'Content & Campaign',
-    segment: 'Event',
-    description: 'Designed comprehensive video and graphic content suite for annual college festival.',
-    results: ['1.2M+ video views', 'Peak engagement on all channels', 'Record ticket sales'],
-    challenge: 'Create a comprehensive media campaign that generates excitement and drives ticket sales for an annual college festival in a tight timeline.',
-    solution: 'We developed a cohesive visual language with custom motion graphics, short-form video content optimized for social media, poster designs, and email campaigns. Each asset was designed for maximum shareability.',
-    impact: 'The campaign went viral within the college community, generating organic shares and reaching 1.2M+ views. Festival ticket sales reached an all-time high.',
-  },
-  {
-    id: 4,
-    title: 'Real Estate Launch Campaign',
-    category: 'Marketing Creative',
-    segment: 'Agency',
-    description: 'Premium campaign design for luxury residential project targeting high-net-worth individuals.',
-    results: ['Pre-launch interest 3x target', '85% unit sold in first month', 'Featured in 5 leading publications'],
-    challenge: 'Launch a luxury residential project with premium positioning to high-net-worth individuals through coordinated visual campaigns.',
-    solution: 'We created a sophisticated visual campaign featuring architectural rendering designs, luxury lifestyle photography concepts, premium brochures, and digital marketing assets. The design emphasized exclusivity and lifestyle aspirations.',
-    impact: 'The campaign exceeded pre-launch interest targets by 3x. The project was featured in leading architectural and lifestyle publications, establishing premium positioning.',
-  },
-];
-
 export default function CaseStudiesPage() {
   return (
     <>
@@ -97,7 +38,7 @@ export default function CaseStudiesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {caseStudies.map((study, index) => (
+            {[...caseStudies].reverse().map((study, index) => (
               <CaseStudyCard key={study.id} {...study} index={index} variant="small" />
             ))}
           </div>
@@ -105,7 +46,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Detailed Case Study Section */}
-      {caseStudyDetails.map((study, index) => (
+      {[...caseStudies].reverse().map((study, index) => (
         <section
           key={study.id}
           id={`study-${study.id}`}

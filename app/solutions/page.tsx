@@ -7,7 +7,7 @@ import ProcessSection from '../../components/ProcessSection';
 import CaseStudyCard from '../../components/CaseStudyCard';
 import PartnerCard from '../../components/PartnerCard';
 import Link from 'next/link';
-import { caseStudies, homeProcessSteps, deliverablePillars, whyChooseUs, executionPartners } from '../../lib/data';
+import { caseStudies, homeProcessSteps, deliverablePillars, whyChooseUs, executionPartners, simplifiedSegments } from '../../lib/data';
 
 function Section({
   children,
@@ -24,29 +24,7 @@ function Section({
 }
 
 export default function SolutionsPage() {
-  const whoWeHelp = [
-    {
-      title: 'Events',
-      description:
-        "Conferences, workshops, college fests, hackathons—we create complete visual identities that make every experience feel professional and memorable.",
-      icon: '🎉',
-      examples: ['Conferences', 'Workshops', 'Alumni Events', 'College Fests', 'Hackathons', 'Corporate Events'],
-    },
-    {
-      title: 'Startups & Businesses',
-      description:
-        'Growing companies need consistent branding, professional communication, and marketing assets that build credibility and trust.',
-      icon: '🚀',
-      examples: ['Startups', 'SaaS Companies', 'EdTech Platforms', 'Consulting Firms', 'Service Businesses'],
-    },
-    {
-      title: 'Agencies',
-      description:
-        'Reliable white-label creative support for agencies that need scalable design execution and consistent delivery for clients.',
-      icon: '🤝',
-      examples: ['Marketing Agencies', 'Advertising Agencies', 'Creative Studios', 'PR Agencies', 'Brand Consultants'],
-    },
-  ];
+  const whoWeHelp = simplifiedSegments.slice(0, 3);
   const problems = [
     { text: 'Event branding feels inconsistent', icon: '❌' },
     { text: 'Marketing creatives look generic', icon: '❌' },
@@ -309,7 +287,7 @@ export default function SolutionsPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {caseStudies.slice(0, 3).map((study, index) => (
+          {[...caseStudies].reverse().slice(0, 3).map((study, index) => (
             <CaseStudyCard key={study.id} {...study} index={index} variant="small" />
           ))}
         </div>

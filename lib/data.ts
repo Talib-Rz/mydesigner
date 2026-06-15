@@ -6,6 +6,9 @@ export interface CaseStudy {
   description: string;
   results: string[];
   image: string;
+  challenge: string;
+  solution: string;
+  impact: string;
 }
 
 export interface ServicePillar {
@@ -78,39 +81,69 @@ export interface SimplifiedSegment {
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: 'TechCon 2024 Campaign',
-    category: 'Event Identity',
-    segment: 'Event',
-    description: 'Complete visual identity system for India\'s largest tech conference with 5000+ attendees.',
-    results: ['200% social media engagement increase', 'Unified visual presence across 8 platforms', 'Premium brand perception'],
+    title: 'IQUED Brand Identity System',
+    category: 'Brand Identity',
+    segment: 'Startup & Business',
+    description: 'Developed a comprehensive brand identity for a premium online learning platform offering personalized tutoring, coding education, and academic mentoring across multiple curricula.',
+    results: [
+    '100+ branded assets designed',
+    'Unified identity across web and social platforms',
+    'Stronger positioning for premium tutoring services'
+    ],
     image: '/images/case-studies/case-study-1.png',
+    challenge: 'IQUED needed a distinctive brand identity that could build trust among parents, appeal to students across age groups, and clearly communicate its premium one-on-one learning approach in a competitive edtech market.',
+    solution: 'We created a modern visual identity system centered around growth, learning, and academic excellence. The project included logo design, brand guidelines, social media templates, marketing creatives, website visuals, and communication assets. The identity was designed to reflect personalized education, mentorship, and future readiness while maintaining a professional and approachable presence.',
+    impact: 'The new brand system helped establish a stronger market presence, improved consistency across customer touchpoints, and positioned IQUED as a credible and premium education partner for students, parents, and lifelong learners.'
   },
   {
     id: 2,
-    title: 'EduStartup Rebranding',
-    category: 'Brand Identity',
-    segment: 'Startup & Business',
-    description: 'Complete rebrand for an EdTech platform targeting college students with modern, AI-forward visual language.',
-    results: ['40% increase in user retention', 'Enhanced brand recognition', 'Improved conversion rates by 35%'],
+    title: 'RAID Conference',
+    category: 'Conference Branding',
+    segment: 'Event',
+    description: 'End-to-end event branding and marketing design for a technology-focused conference, creating a cohesive visual identity across digital and on-ground experiences.',
+    results: [
+    '5,000+ attendees reached through event campaigns',
+    '100+ branded assets designed across digital and print',
+    '50+ speakers, partners, and sponsors supported'
+    ],
     image: '/images/case-studies/case-study-2.png',
+    challenge: 'The conference required a strong and professional brand presence that could attract attendees, engage sponsors, and maintain consistency across multiple event touchpoints. Existing communication lacked a unified visual system capable of representing the scale and credibility of the event.',
+    solution: 'We developed a complete event branding ecosystem including social media campaigns, speaker announcement creatives, stage visuals, sponsor collaterals, registration promotions, digital advertisements, presentation templates, and event-day branding materials. The visual identity was designed to balance innovation, professionalism, and audience engagement.',
+    impact: 'The unified branding elevated the conference’s perceived value, improved audience engagement across channels, strengthened sponsor visibility, and created a memorable experience for attendees. The design system became a central asset for marketing, communication, and event execution.'
   },
   {
     id: 3,
-    title: 'Fest Media Campaign',
-    category: 'Content & Campaign',
-    segment: 'Event',
-    description: 'Designed comprehensive video and graphic content suite for annual college festival.',
-    results: ['1.2M+ video views', 'Peak engagement on all channels', 'Record ticket sales'],
+    title: 'College Recruitment Marketing Brochures',
+    category: 'Colleges Placement Cells',
+    segment: 'Agency',
+    description: 'Designed high-impact placement and recruitment brochures for MBA, M.Tech, B.Tech, and B.Arch programs, helping recruiters quickly understand student strengths, academic excellence, and placement potential.',
+    results: [
+    '800+ successful placements supported, 30% increase in recruiter engagement',
+    '4 comprehensive program brochures designed',
+    'Enhanced recruiter engagement through clear visual storytelling'
+    ],
     image: '/images/case-studies/case-study-3.png',
+    challenge: 'The institution needed a professional and structured way to present placement statistics, academic achievements, student profiles, and program highlights to recruiters. Existing materials lacked clarity, making it difficult for companies to evaluate opportunities at a glance.',
+    solution: 'We designed a series of recruitment-focused brochures for MBA, M.Tech, B.Tech, and B.Arch programs. Through strategic information architecture, data visualization, compelling layouts, and clear content hierarchy, we transformed complex placement data into an engaging and recruiter-friendly format.',
+    impact: 'The redesigned brochures enabled recruiters to quickly understand the institution’s strengths, placement performance, and talent pool. The materials became a key asset during placement drives, supporting nearly 1,000 placements while improving communication with prospective hiring partners.'
   },
   {
     id: 4,
-    title: 'Real Estate Launch Campaign',
-    category: 'Marketing Creative',
-    segment: 'Agency',
-    description: 'Premium campaign design for luxury residential project targeting high-net-worth individuals.',
-    results: ['Pre-launch interest 3x target', '85% unit sold in first month', 'Featured in 5 leading publications'],
+    title: 'World NITCAA Meet 2026',
+    category: 'Alumni Meetup',
+    segment: 'Event',
+    description: 'Comprehensive event branding and marketing campaign designed for a global alumni gathering in Dubai.',
+    results: [
+      'Strong engagement across alumni communities worldwide',
+      'High registration interest generated through digital campaigns',
+      'Consistent event identity across print and digital touchpoints',
+      '400+ alumni reached across global communities',
+      '50+ creative assets delivered across print and digital channels'
+    ],
     image: '/images/case-studies/case-study-4.png',
+    challenge: 'Create a premium and unified visual identity for a global alumni event that would attract thousands of alumni, strengthen community engagement, and communicate the scale and prestige of the gathering.',
+    solution: 'We developed a complete event branding system, including promotional creatives, social media campaigns, event announcements, sponsorship collateral, digital marketing assets, and on-ground event designs. The visual language balanced professionalism, nostalgia, and global appeal while maintaining consistency across all communication channels.',
+    impact: 'The campaign helped build excitement and anticipation among alumni worldwide, increased event visibility across digital platforms, strengthened sponsor exposure, and established a cohesive brand presence leading up to the event.'
   },
 ];
 
@@ -318,21 +351,56 @@ export const deliverablePillars: DeliverablePillar[] = [
     category: 'Brand',
     icon: '🎨',
     description: 'Build a professional visual identity that people recognize and remember. From logos to comprehensive brand systems that maintain consistency across all touchpoints.',
-    items: ['Logos', 'Identity Systems', 'Brand Guidelines', 'Presentations', 'Brochures'],
+    items: [
+      'Brand Identity',
+      'Logo Design',
+      'Brand Strategy',
+      'Visual Identity',
+      'Brand Guidelines',
+      'Corporate Branding',
+      'Pitch Decks',
+      'Company Profiles',
+      'Brochures',
+      'Marketing Collateral'
+    ],
   },
   {
     id: 2,
     category: 'Content',
     icon: '📹',
     description: 'Create visually consistent content that engages your audience. We design everything from social media creatives to motion graphics that drive engagement and conversions.',
-    items: ['Social Media Creatives', 'Reels', 'Motion Graphics', 'Campaign Creatives', 'YouTube Assets'],
+    items: [
+      'Social Media Creatives',
+      'Reels & Shorts',
+      'Motion Graphics',
+      'Video Editing',
+      'Ad Creatives',
+      'Campaign Creatives',
+      'YouTube Assets',
+      'LinkedIn Creatives',
+      'Infographics',
+      'Content Strategy'
+    ],
   },
   {
     id: 3,
     category: 'Experiences',
     icon: '✨',
-    description: 'Bring your brand to life through immersive visual experiences. From events to merchandise, we create tangible brand touchpoints that leave lasting impressions.',
-    items: ['Event Branding', 'Stage Backdrops', 'Certificates', 'Standees', 'Merchandise', 'Venue Graphics'],
+    description: 'Bring your brand to life through immersive visual experiences. From events to merchandise, we create tangible brand touchpoints that leave lasting impressions and create memorable experiences beyond the screen.',
+    items: [
+      'Event Branding',
+      'Stage Backdrops',
+      'Venue Graphics',
+      'Certificates',
+      'ID Cards',
+      'Standees',
+      'Signage',
+      'Merchandise',
+      'Sponsor Assets',
+      'Photo Booths',
+      'Welcome Kits',
+      'Experience Design'
+    ],
   },
 ];
 
@@ -424,7 +492,7 @@ export const simplifiedSegments: SimplifiedSegment[] = [
     id: 1,
     title: 'Events',
     icon: '🎪',
-    examples: ['Conferences', 'College Fests', 'Workshops', 'Hackathons', 'Alumni Meets', 'Corporate Events'],
+    examples: ['Conferences', 'Seminars & Webinars', 'Workshops', 'Hackathons', 'College Fests', 'Alumni Meets', 'Corporate Events', 'Networking Events', 'Business Meetups', 'Training Programs', 'Tech Events', 'Sports Events', 'Award Ceremonies', 'Government Events', 'Community Events', 'Cultural Fests', 'Product Launches'],
     needs: ['Branding', 'Promotion', 'Certificates', 'Venue Graphics', 'Event Experience'],
     description: 'From intimate workshops to large-scale conferences, we create visual experiences that make events memorable. Our event branding systems ensure consistency across all touchpoints while creating the excitement your attendees expect.',
   },
@@ -432,7 +500,7 @@ export const simplifiedSegments: SimplifiedSegment[] = [
     id: 2,
     title: 'Startups & Businesses',
     icon: '🚀',
-    examples: ['Startups', 'EdTech', 'Consulting Firms', 'SaaS Companies', 'Growing Businesses'],
+    examples: ['Startups', 'SaaS Companies', 'Tech Companies', 'FinTech', 'HealthTech', 'EdTech', 'E-commerce', 'Consulting Firms', 'IT & Software Services', 'Real Estate', 'Healthcare Providers', 'Coaching Institutes', 'Manufacturing Companies', 'Retail & Consumer Brands', 'Non-profits & NGOs'],
     needs: ['Brand Identity', 'Marketing Assets', 'Presentations', 'Launch Campaigns'],
     description: 'Whether you\'re pre-launch or scaling, we create visual systems that position you for success. From founding identity to growth marketing, we help you communicate your value clearly and professionally.',
   },
@@ -440,7 +508,7 @@ export const simplifiedSegments: SimplifiedSegment[] = [
     id: 3,
     title: 'Agencies',
     icon: '🤝',
-    examples: ['Marketing Agencies', 'Advertising Agencies', 'PR Agencies', 'Creative Studios'],
+    examples: ['Marketing Agencies', 'Advertising Agencies', 'Creative Studios', 'Brand Strategy Firms', 'Social Media & Content Agencies', 'PR & Communications Agencies', 'Design & UI/UX Agencies', 'Video Production & Photography Studios', 'Media & Influencer Agencies'],
     needs: ['White-label Design Support', 'Campaign Assets', 'Client Deliverables'],
     description: 'We\'re your trusted creative partner. Whether you need white-label design support for client projects or campaign-specific creatives, we deliver consistently excellent work that reflects well on your agency.',
   },
