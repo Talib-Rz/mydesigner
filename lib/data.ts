@@ -6,6 +6,7 @@ export interface CaseStudy {
   description: string;
   results: string[];
   image: string;
+  assetsFolder?: string;
   challenge: string;
   solution: string;
   impact: string;
@@ -91,6 +92,7 @@ export const caseStudies: CaseStudy[] = [
     'Stronger positioning for premium tutoring services'
     ],
     image: '/images/case-studies/case-study-1.png',
+    assetsFolder: '/gallery-items/case-study-1',
     challenge: 'IQUED needed a distinctive brand identity that could build trust among parents, appeal to students across age groups, and clearly communicate its premium one-on-one learning approach in a competitive edtech market.',
     solution: 'We created a modern visual identity system centered around growth, learning, and academic excellence. The project included logo design, brand guidelines, social media templates, marketing creatives, website visuals, and communication assets. The identity was designed to reflect personalized education, mentorship, and future readiness while maintaining a professional and approachable presence.',
     impact: 'The new brand system helped establish a stronger market presence, improved consistency across customer touchpoints, and positioned IQUED as a credible and premium education partner for students, parents, and lifelong learners.'
@@ -102,11 +104,12 @@ export const caseStudies: CaseStudy[] = [
     segment: 'Event',
     description: 'End-to-end event branding and marketing design for a technology-focused conference, creating a cohesive visual identity across digital and on-ground experiences.',
     results: [
-    '5,000+ attendees reached through event campaigns',
+    '2,000+ attendees reached through event campaigns',
     '100+ branded assets designed across digital and print',
     '50+ speakers, partners, and sponsors supported'
     ],
     image: '/images/case-studies/case-study-2.png',
+    assetsFolder: '/gallery-items/case-study-2',
     challenge: 'The conference required a strong and professional brand presence that could attract attendees, engage sponsors, and maintain consistency across multiple event touchpoints. Existing communication lacked a unified visual system capable of representing the scale and credibility of the event.',
     solution: 'We developed a complete event branding ecosystem including social media campaigns, speaker announcement creatives, stage visuals, sponsor collaterals, registration promotions, digital advertisements, presentation templates, and event-day branding materials. The visual identity was designed to balance innovation, professionalism, and audience engagement.',
     impact: 'The unified branding elevated the conference’s perceived value, improved audience engagement across channels, strengthened sponsor visibility, and created a memorable experience for attendees. The design system became a central asset for marketing, communication, and event execution.'
@@ -123,6 +126,7 @@ export const caseStudies: CaseStudy[] = [
     'Enhanced recruiter engagement through clear visual storytelling'
     ],
     image: '/images/case-studies/case-study-3.png',
+    assetsFolder: '/gallery-items/case-study-3',
     challenge: 'The institution needed a professional and structured way to present placement statistics, academic achievements, student profiles, and program highlights to recruiters. Existing materials lacked clarity, making it difficult for companies to evaluate opportunities at a glance.',
     solution: 'We designed a series of recruitment-focused brochures for MBA, M.Tech, B.Tech, and B.Arch programs. Through strategic information architecture, data visualization, compelling layouts, and clear content hierarchy, we transformed complex placement data into an engaging and recruiter-friendly format.',
     impact: 'The redesigned brochures enabled recruiters to quickly understand the institution’s strengths, placement performance, and talent pool. The materials became a key asset during placement drives, supporting nearly 1,000 placements while improving communication with prospective hiring partners.'
@@ -141,6 +145,7 @@ export const caseStudies: CaseStudy[] = [
       '50+ creative assets delivered across print and digital channels'
     ],
     image: '/images/case-studies/case-study-4.png',
+    assetsFolder: '/gallery-items/case-study-4',
     challenge: 'Create a premium and unified visual identity for a global alumni event that would attract thousands of alumni, strengthen community engagement, and communicate the scale and prestige of the gathering.',
     solution: 'We developed a complete event branding system, including promotional creatives, social media campaigns, event announcements, sponsorship collateral, digital marketing assets, and on-ground event designs. The visual language balanced professionalism, nostalgia, and global appeal while maintaining consistency across all communication channels.',
     impact: 'The campaign helped build excitement and anticipation among alumni worldwide, increased event visibility across digital platforms, strengthened sponsor exposure, and established a cohesive brand presence leading up to the event.'

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
 import CaseStudyCard from '@/components/CaseStudyCard';
 import CTASection from '@/components/CTASection';
+import Link from 'next/link';
 import { caseStudies } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -95,6 +96,15 @@ export default function CaseStudiesPage() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-6 flex justify-center">
+              <Link
+                href={`/case-studies/${study.id}/designs`}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary-700 text-white rounded-md hover:bg-primary-800 shadow-sm"
+              >
+                Explore Designs
+              </Link>
             </div>
           </div>
         </section>
