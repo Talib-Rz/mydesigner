@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 type Props = {
   files: string[];
@@ -9,7 +9,7 @@ type Props = {
 
 const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [modalUrl, setModalUrl] = useState<string | null>(null);
+  // PDFs open in a new tab; no modal state required
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -42,16 +42,7 @@ const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
     return () => observer.disconnect();
   }, [files]);
 
-  // close modal on Escape
-  const handleKey = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') setModalUrl(null);
-  }, []);
-
-  useEffect(() => {
-    if (!modalUrl) return;
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [modalUrl, handleKey]);
+  // No modal keyboard handlers required for PDFs opening in new tab
 
   return (
     <>
@@ -79,17 +70,11 @@ const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
           return (
             <div key={file} className="aspect-square overflow-hidden rounded-lg bg-gray-50 p-2">
               <div className="relative w-full h-full bg-white border rounded">
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setModalUrl(publicUrl)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setModalUrl(publicUrl);
-                    }
-                  }}
-                  className="w-full h-full block cursor-pointer"
+                <a
+                  href={publicUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-full block"
                 >
                   {/* first-page preview as clear thumbnail */}
                   <iframe
@@ -98,7 +83,7 @@ const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
                     className="w-full h-full pointer-events-none"
                   />
                   <span className="absolute top-2 left-2 bg-white/90 text-xs text-primary-700 px-2 py-1 rounded">PDF</span>
-                </div>
+                </a>
               </div>
             </div>
           );
@@ -113,22 +98,7 @@ const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
       })}
     </div>
 
-      {/* Modal viewer for PDFs */}
-      {modalUrl && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setModalUrl(null)} />
-          <div className="relative w-full h-full max-w-6xl max-h-[90vh] bg-white rounded shadow-lg overflow-hidden">
-            <button
-              onClick={() => setModalUrl(null)}
-              className="absolute top-3 right-3 z-10 bg-white/80 rounded-full p-2 hover:bg-white"
-              aria-label="Close PDF viewer"
-            >
-              ✕
-            </button>
-            <iframe src={modalUrl} title="PDF Viewer" className="w-full h-full" />
-          </div>
-        </div>
-      )}
+      {/* PDFs open in new tab; modal viewer removed for mobile compatibility */}
     </>
   );
 };
