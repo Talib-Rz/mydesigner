@@ -68,11 +68,16 @@ export async function GET() {
     const entries = readdirSync(galleryDir);
     const categories: GalleryCategory[] = [];
 
+    // Exclude folders that are case-study galleries
+    const excludePattern = /case[- ]?stud/i;
+
     entries.forEach((entry) => {
       const fullPath = join(galleryDir, entry);
       const stat = statSync(fullPath);
 
       if (stat.isDirectory()) {
+        // Skip case-study folders so they don't appear in the public gallery
+        if (excludePattern.test(entry)) return;
         // It's a folder - check if it has orientation subfolders
         try {
           const files = readdirSync(fullPath);
