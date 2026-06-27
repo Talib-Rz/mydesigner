@@ -230,7 +230,7 @@ export default function SolutionsPage() {
             className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
           >
             <p className="text-lg font-semibold text-gray-900 leading-relaxed text-center">
-              We combine strategic thinking, human creativity, and AI-powered workflows to deliver faster, smarter, and better design without compromising quality.
+              We combine strategic thinking, human creativity, and AI-powered workflows to deliver faster, smarter, and better design           without compromising quality.
             </p>
           </motion.div>
         </div>

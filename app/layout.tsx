@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 // Import Google Analytics wrapper with Suspense boundary (required for useSearchParams in Next.js 14)
 import GoogleAnalyticsWrapper from '@/components/GoogleAnalyticsWrapper';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -46,6 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-white">
+        <SmoothScroll />
         <Navbar />
         <main className="min-h-screen pt-24 md:pt-10">
           {children}
