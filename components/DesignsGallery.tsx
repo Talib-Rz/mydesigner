@@ -67,24 +67,37 @@ const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
         }
 
         if (ext === 'pdf') {
+          const pdfPreviewUrl = `${publicUrl}#page=1&view=FitH`;
+
           return (
-            <div key={file} className="aspect-square overflow-hidden rounded-lg bg-gray-50 p-2">
-              <div className="relative w-full h-full bg-white border rounded">
-                <a
-                  href={publicUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full h-full block"
-                >
-                  {/* first-page preview as clear thumbnail */}
-                  <iframe
-                    src={`${publicUrl}#page=1`}
-                    title={file}
-                    className="w-full h-full pointer-events-none"
-                  />
-                  <span className="absolute top-2 left-2 bg-white/90 text-xs text-primary-700 px-2 py-1 rounded">PDF</span>
-                </a>
-              </div>
+            <div key={file}>
+              <a
+                href={publicUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+                aria-label={`Open ${file} in a new tab`}
+              >
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+                  <object
+                    data={pdfPreviewUrl}
+                    type="application/pdf"
+                    className="h-full w-full min-h-[240px]"
+                    aria-label={`Preview of ${file}`}
+                  >
+                    <embed src={pdfPreviewUrl} type="application/pdf" className="h-full w-full min-h-[240px]" />
+                    <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 text-center">
+                      <p className="text-sm font-semibold text-gray-800">PDF preview</p>
+                      <p className="mt-1 text-xs text-gray-600">Open the full document</p>
+                    </div>
+                  </object>
+
+                  <div className="absolute left-3 top-3 rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
+                    PDF
+                  </div>
+                  <div className="absolute inset-0 bg-black/0 transition duration-200 group-hover:bg-black/10" />
+                </div>
+              </a>
             </div>
           );
         }

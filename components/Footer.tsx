@@ -17,9 +17,9 @@ export default function Footer() {
   ];
 
   const segments = [
-    { label: 'Events', href: '/solutions' },
-    { label: 'Startups & Business', href: '/solutions' },
-    { label: 'Agencies', href: '/solutions' },
+    { label: 'Events', href: '/solutions#who-we-help' },
+    { label: 'Startups & Business', href: '/solutions#who-we-help' },
+    { label: 'Agencies', href: '/solutions#who-we-help' },
   ];
 
   const socialLinks = [
@@ -121,16 +121,8 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+          <div className="flex justify-center items-center text-center text-gray-400 text-xs sm:text-sm">
             <p>&copy; {currentYear} myDesigner. All rights reserved.</p>
-            <div className="flex gap-4 sm:gap-6">
-              <Link href="#" className="hover:text-accent transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </div>

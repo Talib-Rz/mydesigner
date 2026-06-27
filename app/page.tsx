@@ -27,6 +27,15 @@ function Section({
 }
 
 export default function Home() {
+  const benefits = [
+    { title: 'Consistent Event Branding', text: 'Across every touchpoint—from invitations to stage design.', icon: '✓' },
+    { title: 'High-Impact Marketing Creatives', text: 'Designed to capture attention and increase engagement.', icon: '✓' },
+    { title: 'One Unified Visual Experience', text: 'Every asset works together as one cohesive brand system.', icon: '✓' },
+    { title: 'Visual Consistency Across Teams', text: 'Easy-to-use design systems that scale effortlessly.', icon: '✓' },
+    { title: 'AI-Enhanced Design Workflow', text: 'We use AI to enhance research, ideation, content exploration, and production speed while every final design is thoughtfully crafted by experienced designers.', icon: '✓' },
+    { title: 'Designed to Stand Out', text: 'Creative visuals that leave a lasting impression online and offline.', icon: '✓' },
+  ];
+
   return (
     <>
       {/* Hero Section */}
@@ -63,31 +72,34 @@ export default function Home() {
               className="h-full"
             >
               <Link
-                href="/solutions"
+                href="/solutions#who-we-help"
                 aria-label={`Explore ${segment.title}`}
-                className="block h-full p-6 bg-white rounded-2xl border border-gray-100 card-shadow hover:shadow-xl transition-shadow transform hover:-translate-y-2 text-center flex flex-col"
+                className="block h-full p-6 bg-white rounded-2xl card-shadow hover:shadow-xl transition-shadow transform hover:-translate-y-2 flex flex-col items-center text-center justify-between"
               >
-                <div className="text-5xl mb-3">{segment.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900">{segment.title}</h3>
-
-                <div className="mt-4 flex flex-wrap justify-center gap-2">
-                  {segment.examples.map((example) => (
-                    <span
-                      key={example}
-                      className="text-xs px-2 py-1 bg-primary-50 text-primary-700 rounded-full border border-primary-100"
-                    >
-                      {example}
-                    </span>
-                  ))}
+                <div>
+                  <div className="text-5xl mb-3">{segment.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-5">{segment.title}</h3>
+                  <div className="flex flex-wrap justify-center gap-2 mb-6">
+                    {segment.examples.slice(0, 5).map((example) => (
+                      <span
+                        key={example}
+                        className="text-xs px-2 py-1 bg-primary-50 text-primary-700 rounded-full border border-primary-100"
+                      >
+                        {example}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="inline-flex items-center gap-2 text-primary-700 font-semibold hover:text-primary-800 transition-colors text-sm">
+                  Expand <span className="inline-block">→</span>
                 </div>
               </Link>
             </motion.div>
           ))}
-
         </div>
       </Section>
 
-      {/* The Problem */}
+      {/* Great Ideas Look Extraordinary */}
       <Section className="bg-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -96,25 +108,31 @@ export default function Home() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="section-title">Great Ideas Often Look Ordinary</h2>
+          <h2 className="section-title">Great Ideas Look Extraordinary</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Common challenges we solve for our clients
+            We create consistent, memorable, and high-impact visual experiences for brands, businesses, and events.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {problemPoints.map((point, idx) => (
+            {benefits.map((benefit, idx) => (
               <motion.div
-                key={point.id}
+                key={benefit.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 rounded-lg bg-red-50 border border-red-100"
+                whileHover={{ y: -6, boxShadow: '0 18px 40px rgba(34, 197, 94, 0.12)' }}
+                className="flex items-start gap-4 p-6 rounded-2xl bg-emerald-50/70 border border-emerald-200 shadow-sm"
               >
-                <div className="text-2xl flex-shrink-0">❌</div>
-                <p className="text-gray-700 font-medium">{point.text}</p>
+                <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm">
+                  <span className="text-lg font-semibold">✓</span>
+                </div>
+                <div>
+                  <p className="text-gray-900 font-semibold leading-relaxed">{benefit.title}</p>
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{benefit.text}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -124,10 +142,10 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center p-8 bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl border border-primary-200"
+            className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
           >
-            <p className="text-lg font-bold text-primary-900">
-              ✓ We solve this through structured visual systems.
+            <p className="text-lg font-semibold text-gray-900 leading-relaxed text-center">
+              We combine strategic thinking, human creativity, and AI-powered workflows to deliver faster, smarter, and better design without compromising quality.
             </p>
           </motion.div>
         </div>
@@ -160,13 +178,12 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true, amount: 0.3 }}
                 whileHover={{ y: -8 }}
-                className="p-6 bg-white rounded-2xl border border-gray-100 card-shadow h-full flex flex-col text-center hover:shadow-xl transition-shadow cursor-pointer"
+                className="p-6 bg-white rounded-2xl card-shadow h-full flex flex-col items-center text-center hover:shadow-xl transition-shadow cursor-pointer"
               >
                 <div className="text-5xl mb-4">{pillar.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">{pillar.category}</h3>
-                
-                <div className="flex flex-wrap justify-center gap-2 mt-auto">
-                  {pillar.items.map((item) => (
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{pillar.category}</h3>
+                <div className="flex flex-wrap justify-center gap-2 mb-6">
+                  {pillar.items.slice(0, 5).map((item) => (
                     <span
                       key={item}
                       className="text-xs px-2 py-1 bg-primary-50 text-primary-700 rounded-full border border-primary-100"
@@ -174,6 +191,9 @@ export default function Home() {
                       {item}
                     </span>
                   ))}
+                </div>
+                <div className="inline-flex items-center gap-2 text-primary-700 font-semibold hover:text-primary-800 transition-colors text-sm">
+                  Expand <span className="inline-block">→</span>
                 </div>
               </motion.div>
             </Link>

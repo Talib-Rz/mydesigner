@@ -25,13 +25,13 @@ function Section({
 
 export default function SolutionsPage() {
   const whoWeHelp = simplifiedSegments.slice(0, 3);
-  const problems = [
-    { text: 'Event branding feels inconsistent', icon: '❌' },
-    { text: 'Marketing creatives look generic', icon: '❌' },
-    { text: 'Different vendors create disconnected experiences', icon: '❌' },
-    { text: 'Teams struggle to maintain visual consistency', icon: '❌' },
-    { text: 'AI tools generate visuals but not complete systems', icon: '❌' },
-    { text: 'Campaigns fail to stand out in crowded markets', icon: '❌' },
+  const benefits = [
+    { title: 'Consistent Event Branding', text: 'Across every touchpoint—from invitations to stage design.', icon: '✓' },
+    { title: 'High-Impact Marketing Creatives', text: 'Designed to capture attention and increase engagement.', icon: '✓' },
+    { title: 'One Unified Visual Experience', text: 'Every asset works together as one cohesive brand system.', icon: '✓' },
+    { title: 'Visual Consistency Across Teams', text: 'Easy-to-use design systems that scale effortlessly.', icon: '✓' },
+    { title: 'AI-Enhanced Design Workflow', text: 'We use AI to enhance research, ideation, content exploration, and production speed while every final design is thoughtfully crafted by experienced designers.', icon: '✓' },
+    { title: 'Designed to Stand Out', text: 'Creative visuals that leave a lasting impression online and offline.', icon: '✓' },
   ];
 
   // Vertical process with animated connectors
@@ -120,18 +120,19 @@ export default function SolutionsPage() {
 
       {/* Who We Help */}
       <Section className="bg-gray-50">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h2 className="section-title mb-4">Who We Help</h2>
-          <p className="section-subtitle">
-            We partner with organizations that rely on strong visual communication to build trust, attract attention and create memorable experiences.
-          </p>
-        </motion.div>
+        <div id="who-we-help">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="section-title">Who We Help</h2>
+            <p className="section-subtitle">
+              We partner with organizations that rely on strong visual communication to build trust, attract attention and create memorable experiences.
+            </p>
+          </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {whoWeHelp.map((segment, idx) => (
@@ -142,12 +143,12 @@ export default function SolutionsPage() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true, amount: 0.3 }}
               whileHover={{ y: -12 }}
-              className="p-8 bg-white rounded-2xl border border-gray-100 card-shadow h-full flex flex-col"
+              className="p-8 bg-white rounded-2xl border border-gray-100 card-shadow h-full flex flex-col items-center text-center"
             >
               <div className="text-6xl mb-6">{segment.icon}</div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">{segment.title}</h3>
               <p className="text-gray-600 leading-relaxed flex-1 mb-6">{segment.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {segment.examples.map((example) => (
                   <span
                     key={example}
@@ -160,6 +161,7 @@ export default function SolutionsPage() {
             </motion.div>
           ))}
         </div>
+      </div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -178,7 +180,7 @@ export default function SolutionsPage() {
         </motion.div>
       </Section>
 
-      {/* The Problem */}
+      {/* Benefits */}
       <Section className="bg-white">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -187,25 +189,35 @@ export default function SolutionsPage() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="section-title">Great Ideas Often Look Ordinary</h2>
+          <h2 className="section-title">Great Ideas Look Extraordinary</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Common challenges we solve for our clients
+            We create consistent, memorable, and high-impact visual experiences for brands, businesses, and events.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-            {problems.map((problem, idx) => (
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {benefits.map((benefit, idx) => (
               <motion.div
-                key={idx}
+                key={benefit.title}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-4 p-4 rounded-lg bg-red-50 border border-red-100"
+                whileHover={{ y: -6, boxShadow: '0 18px 40px rgba(34, 197, 94, 0.12)' }}
+                className="flex items-start gap-4 p-6 rounded-2xl bg-emerald-50/70 border border-emerald-200 shadow-sm"
               >
-                <div className="text-2xl flex-shrink-0">{problem.icon}</div>
-                <p className="text-gray-700 font-medium">{problem.text}</p>
+                <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm">
+                  <span className="text-lg font-semibold">✓</span>
+                </div>
+                <div>
+                  <p className="text-gray-900 font-semibold leading-relaxed">
+                    {benefit.title === 'AI-Enhanced Design Workflow' ? <><span className="font-semibold">{benefit.title}</span></> : benefit.title}
+                  </p>
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                    {benefit.title === 'AI-Enhanced Design Workflow' ? <><strong>We use AI to enhance research, ideation, content exploration, and production speed while every final design is thoughtfully crafted by experienced designers.</strong></> : benefit.text}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -215,10 +227,10 @@ export default function SolutionsPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center p-8 bg-gradient-to-r from-primary-50 to-accent/10 rounded-2xl border border-primary-200"
+            className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
           >
-            <p className="text-lg font-bold text-primary-900">
-              ✓ We solve this through structured visual systems.
+            <p className="text-lg font-semibold text-gray-900 leading-relaxed text-center">
+              We combine strategic thinking, human creativity, and AI-powered workflows to deliver faster, smarter, and better design without compromising quality.
             </p>
           </motion.div>
         </div>
@@ -249,7 +261,7 @@ export default function SolutionsPage() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true, amount: 0.3 }}
               whileHover={{ y: -8 }}
-              className="p-6 bg-white rounded-2xl border border-gray-100 card-shadow h-full flex flex-col hover:shadow-xl transition-shadow"
+              className="p-6 bg-white rounded-2xl border border-gray-100 card-shadow h-full flex flex-col items-center text-center hover:shadow-xl transition-shadow"
             >
               <div className="text-5xl mb-4">{pillar.icon}</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">{pillar.category}</h3>
