@@ -1,6 +1,18 @@
 "use client";
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useRef } from 'react';
+
+const PDFThumbnail = dynamic(() => import('@/components/PDFThumbnail'), {
+  ssr: false,
+  loading: () => (
+    <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+      <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 text-center">
+        <p className="text-sm font-semibold text-gray-800">Loading preview…</p>
+      </div>
+    </div>
+  ),
+});
 
 type Props = {
   files: string[];
@@ -67,36 +79,17 @@ const DesignsGallery: React.FC<Props> = ({ files, folderRel }) => {
         }
 
         if (ext === 'pdf') {
-          const pdfPreviewUrl = `${publicUrl}#page=1&view=FitH`;
-
           return (
             <div key={file}>
               <a
                 href={publicUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="group relative block"
                 aria-label={`Open ${file} in a new tab`}
               >
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
-                  <object
-                    data={pdfPreviewUrl}
-                    type="application/pdf"
-                    className="h-full w-full min-h-[240px]"
-                    aria-label={`Preview of ${file}`}
-                  >
-                    <embed src={pdfPreviewUrl} type="application/pdf" className="h-full w-full min-h-[240px]" />
-                    <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 text-center">
-                      <p className="text-sm font-semibold text-gray-800">PDF preview</p>
-                      <p className="mt-1 text-xs text-gray-600">Open the full document</p>
-                    </div>
-                  </object>
-
-                  <div className="absolute left-3 top-3 rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
-                    PDF
-                  </div>
-                  <div className="absolute inset-0 bg-black/0 transition duration-200 group-hover:bg-black/10" />
-                </div>
+                <PDFThumbnail pdfUrl={publicUrl} title={file} />
+                <div className="pointer-events-none absolute inset-0 bg-black/0 transition duration-200 group-hover:bg-black/10" />
               </a>
             </div>
           );
