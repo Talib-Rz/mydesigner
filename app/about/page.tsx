@@ -206,7 +206,7 @@ export default function AboutPage() {
             </p>
 
             <p>
-              Beyond client work, I enjoy exploring new design trends, learning emerging technologies, and constantly refining my craft. I'm always curious about how design can create better experiences and stronger connections between brands and people. When I'm not designing, you'll probably find me discovering creative inspiration, reading about branding and strategy, or exchanging ideas with fellow creatives. <span className="font-semibold text-gray-900"><br /><br />Toh, kuch aisa banaye? jo sirf accha nhi, balki yaad bhi rahe.</span>
+              Beyond client work, I enjoy exploring new design trends, learning emerging technologies, and constantly refining my craft. I'm always curious about how design can create better experiences and stronger connections between brands and people. When I'm not designing, you'll probably find me discovering creative inspiration, reading about branding and strategy, or exchanging ideas with fellow creatives. <span className="font-semibold text-gray-900"><br /><br />Toh, kuch aisa banaye? jo sirf accha nhi, balki yaad bhi rahe!</span>
             </p>
             </motion.div>
           </motion.div>
