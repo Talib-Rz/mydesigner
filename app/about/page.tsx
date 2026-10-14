@@ -195,10 +195,10 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-4 text-gray-600 leading-relaxed"
+              className="space-y-4 text-justify [text-align-last:center] text-gray-600 leading-relaxed"
             >
             <p>
-              With <span className="font-semibold text-gray-900">5+ years of experience</span> in design and creative problem-solving, I've had the opportunity to work across branding, digital products, marketing creatives, and user experiences. Collaborating with businesses, startups, and teams has helped me understand that great design isn't just about looking good—it's about communicating clearly, building trust, and creating meaningful impact.
+              With <span className="font-semibold text-gray-900">5+ years of experience</span> in design and creative problem-solving, I've had the opportunity to work across branding, digital products, marketing creatives, and user experiences. Collaborating with businesses, startups, and teams has helped me understand that great design isn't just about looking good - it's about communicating clearly, building trust, and creating meaningful impact.
             </p>
 
             <p>
