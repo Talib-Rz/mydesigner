@@ -8,8 +8,9 @@ This document provides a comprehensive inventory of all content, sections, and U
 ## 1. HOME PAGE (/)
 
 ### Hero Section
+- **Eyebrow**: "AI-ENHANCED CREATIVE DESIGN STUDIO"
 - **Title**: "Visual Experiences That People Remember"
-- **Subtitle**: "We help events, startups and agencies present themselves professionally through branding, content design, motion creatives and complete visual systems."
+- **Subtitle**: "We combine human creativity, professional design expertise and AI-powered workflows to create standout visuals for events, startups and agencies."
 - **Primary CTA**: "View Services" → Links to `/services`
 - **Secondary CTA**: "Get In Touch" → Links to `/contact`
 

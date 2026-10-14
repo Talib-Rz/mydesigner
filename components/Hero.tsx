@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 interface HeroProps {
+  eyebrow?: string;
   title: string;
   subtitle: string;
   primaryCta?: {
@@ -18,6 +19,7 @@ interface HeroProps {
 }
 
 export default function Hero({
+  eyebrow,
   title,
   subtitle,
   primaryCta,
@@ -50,6 +52,15 @@ export default function Hero({
           animate={showAnimation ? 'visible' : {}}
           className="text-center max-w-4xl mx-auto"
         >
+          {eyebrow && (
+            <motion.p
+              variants={showAnimation ? itemVariants : {}}
+              className="text-sm sm:text-base font-semibold tracking-[0.2em] text-primary-700 mb-4 px-4"
+            >
+              {eyebrow}
+            </motion.p>
+          )}
+
           {/* Main Title */}
           <motion.h1
             variants={showAnimation ? itemVariants : {}}
