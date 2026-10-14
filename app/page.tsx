@@ -42,7 +42,7 @@ export default function Home() {
       <Hero
         eyebrow="AI-ENHANCED CREATIVE DESIGN STUDIO"
         title="Visual Experiences That People Remember"
-        subtitle="We combine human creativity, professional design expertise and AI-powered tools to create standout visuals for events, startups and agencies."
+        subtitle="We combine human creativity, professional design expertise, and AI-powered tools to create impactful visuals for events, startups, and agencies."
         primaryCta={{ label: 'View Our Work', href: '/case-studies' }}
         secondaryCta={{ label: 'Let\'s Discuss Your Project', href: '/contact' }}
       />
@@ -146,7 +146,7 @@ export default function Home() {
             className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
           >
             <p className="text-lg font-semibold text-gray-900 leading-relaxed text-center">
-              We combine strategic thinking, human creativity, and AI-powered tools to deliver faster, smarter, and better design without compromising quality.
+              We combine human creativity, professional design expertise, and AI-powered tools to create impactful visuals for events, startups, and agencies.
             </p>
           </motion.div>
         </div>
